@@ -11,23 +11,25 @@ using System.Windows.Forms;
 
 namespace FinishLine
 {
-    //public enum Pohlavie
-    //{
-    //    muž,
-    //    žena,
-    //}
-
     public partial class CiselnikBezcov : Form
     {
         public CiselnikBezcov()
         {
             InitializeComponent();
             Staty.NacitajZoznamStatov();
-            //načítam do stlpca zdroj mojich krajin
-            ((DataGridViewComboBoxColumn)dgwCiselnikBezcov.Columns[3]).DataSource = Staty.krajiny.ToList();
-            ((DataGridViewComboBoxColumn)dgwCiselnikBezcov.Columns[4]).DataSource = Enum.GetValues(typeof(Pohlavie));
+            dgwCiselnikBezcov.DataSource = BezecZoznam.zoznamBezcov.Values.ToList<Bezec>();
+            dataGridView1.DataSource = BezecZoznam.zoznamBezcov.Values.ToList<Bezec>();
+        }
 
-
+        /// <summary>
+        /// refreshne datagridview na formulari
+        /// </summary>
+        public void refreshDataGridView()
+        {
+            dgwCiselnikBezcov.Refresh();
+            dataGridView1.Refresh();
+            dgwCiselnikBezcov.Update();
+            dataGridView1.Update();
         }
 
         private void dgwCiselnikBezcov_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -44,6 +46,26 @@ namespace FinishLine
         {
             UpravaBezca f = new UpravaBezca();
             f.ShowDialog(this);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        public void CiselnikBezcov_Load(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void CiselnikBezcov_Shown(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CiselnikBezcov_Activated(object sender, EventArgs e)
+        {
         }
     }
 }

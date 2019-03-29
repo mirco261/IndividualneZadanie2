@@ -101,6 +101,8 @@
       <DependentUpon>UpravaBezca.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Bezec.datasource" />
+    <None Include="Properties\DataSources\BezecZoznam.datasource" />
     <None Include="Properties\DataSources\Krajiny.datasource" />
     <None Include="Properties\DataSources\Stat.datasource" />
     <None Include="Properties\Settings.settings">

@@ -8,13 +8,15 @@ namespace FinishLine
 {
     public class Bezec
     {
+        public int ID { get; set; }
         public string Meno { get; set; }
         public string Krajina { get; set; }
         public int Vek { get; set; }
         public string Pohlavie { get; set; }
 
-        public Bezec(string meno, string krajina, int vek, string pohlavie)
+        public Bezec(int id, string meno, string krajina, int vek, string pohlavie)
         {
+            ID = id;
             Meno = meno;
             Krajina = krajina;
             Vek = vek;
