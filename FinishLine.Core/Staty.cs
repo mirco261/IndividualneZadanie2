@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.IO;
 using KBCsv;
+using FinishLine.Core;
 
 
 namespace FinishLine
@@ -13,7 +14,9 @@ namespace FinishLine
     public static class Staty
     {
         public static List<Stat> krajiny = new List<Stat>();
-        static string path = @"C:\Users\Mirco\source\repos\IndividualneZadanie2\Data\countries.csv";
+        static string path = "countries.csv";
+
+        //static string path = @"C:\Users\Mirco\source\repos\IndividualneZadanie2\Data\countries.csv";
 
         public static void NacitajZoznamStatov()
         {

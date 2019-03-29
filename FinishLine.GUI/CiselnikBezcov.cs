@@ -18,7 +18,6 @@ namespace FinishLine
             InitializeComponent();
             Staty.NacitajZoznamStatov();
             dgwCiselnikBezcov.DataSource = BezecZoznam.zoznamBezcov.Values.ToList<Bezec>();
-            dataGridView1.DataSource = BezecZoznam.zoznamBezcov.Values.ToList<Bezec>();
         }
 
         /// <summary>
@@ -27,9 +26,9 @@ namespace FinishLine
         public void refreshDataGridView()
         {
             dgwCiselnikBezcov.Refresh();
-            dataGridView1.Refresh();
             dgwCiselnikBezcov.Update();
-            dataGridView1.Update();
+            InitializeComponent();
+
         }
 
         private void dgwCiselnikBezcov_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -42,9 +41,14 @@ namespace FinishLine
 
         }
 
+        /// <summary>
+        /// Povolanie frm na vytvorenie bežca, ktoréo potom pošlem do dictionary
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPridajBezca_Click(object sender, EventArgs e)
         {
-            UpravaBezca f = new UpravaBezca();
+            BezecPridaj f = new BezecPridaj();
             f.ShowDialog(this);
         }
 
@@ -66,6 +70,33 @@ namespace FinishLine
 
         private void CiselnikBezcov_Activated(object sender, EventArgs e)
         {
+        }
+
+        /// <summary>
+        /// Zistím si index riadka, vypýtam si následne ID ktoré je v prvom stlpci a povolám vymazanie údaja
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnVymazBezca_Click(object sender, EventArgs e)
+        {
+            int x = dgwCiselnikBezcov.CurrentCell.RowIndex;
+            int id = (int)(dgwCiselnikBezcov.Rows[x].Cells[0].Value);
+            BezecZoznam.zoznamBezcovVymaz(id);
+
+
+        }
+
+        /// <summary>
+        /// Zistím si index riadka, vypýtam si následne ID ktoré je v prvom stlpci a povolám frm na úpravu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnUpravBezca_Click(object sender, EventArgs e)
+        {
+            int x = dgwCiselnikBezcov.CurrentCell.RowIndex;
+            int id = (int)(dgwCiselnikBezcov.Rows[x].Cells[0].Value);
+            BezecUprav f = new BezecUprav(id);
+            f.ShowDialog(this);
         }
     }
 }

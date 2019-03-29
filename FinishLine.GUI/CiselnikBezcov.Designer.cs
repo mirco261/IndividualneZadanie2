@@ -35,11 +35,10 @@
             this.Vek = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Krajina = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pohlavie = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bezecZoznamBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.btnPridajBezca = new System.Windows.Forms.Button();
             this.btnUpravBezca = new System.Windows.Forms.Button();
             this.btnVymazBezca = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.bezecZoznamBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.statBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.statBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.krajinyBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -48,7 +47,6 @@
             this.bezecZoznamBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bezecBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgwCiselnikBezcov)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bezecZoznamBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statBindingSource1)).BeginInit();
@@ -77,7 +75,7 @@
             this.dgwCiselnikBezcov.Margin = new System.Windows.Forms.Padding(4);
             this.dgwCiselnikBezcov.Name = "dgwCiselnikBezcov";
             this.dgwCiselnikBezcov.ReadOnly = true;
-            this.dgwCiselnikBezcov.Size = new System.Drawing.Size(792, 210);
+            this.dgwCiselnikBezcov.Size = new System.Drawing.Size(593, 498);
             this.dgwCiselnikBezcov.TabIndex = 0;
             this.dgwCiselnikBezcov.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwCiselnikBezcov_CellContentClick);
             this.dgwCiselnikBezcov.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgwCiselnikBezcov_CellFormatting);
@@ -117,6 +115,10 @@
             this.Pohlavie.Name = "Pohlavie";
             this.Pohlavie.ReadOnly = true;
             // 
+            // bezecZoznamBindingSource1
+            // 
+            this.bezecZoznamBindingSource1.DataSource = typeof(FinishLine.BezecZoznam);
+            // 
             // btnPridajBezca
             // 
             this.btnPridajBezca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -139,6 +141,7 @@
             this.btnUpravBezca.TabIndex = 2;
             this.btnUpravBezca.Text = "Uprav bežca";
             this.btnUpravBezca.UseVisualStyleBackColor = true;
+            this.btnUpravBezca.Click += new System.EventHandler(this.btnUpravBezca_Click);
             // 
             // btnVymazBezca
             // 
@@ -150,20 +153,7 @@
             this.btnVymazBezca.TabIndex = 3;
             this.btnVymazBezca.Text = "Vymaž bežca";
             this.btnVymazBezca.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(71, 282);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(548, 150);
-            this.dataGridView1.TabIndex = 4;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // bezecZoznamBindingSource1
-            // 
-            this.bezecZoznamBindingSource1.DataSource = typeof(FinishLine.BezecZoznam);
+            this.btnVymazBezca.Click += new System.EventHandler(this.btnVymazBezca_Click);
             // 
             // statBindingSource2
             // 
@@ -198,8 +188,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(792, 614);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(593, 609);
             this.Controls.Add(this.btnVymazBezca);
             this.Controls.Add(this.btnUpravBezca);
             this.Controls.Add(this.btnPridajBezca);
@@ -212,7 +201,6 @@
             this.Load += new System.EventHandler(this.CiselnikBezcov_Load);
             this.Shown += new System.EventHandler(this.CiselnikBezcov_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dgwCiselnikBezcov)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bezecZoznamBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statBindingSource1)).EndInit();
@@ -238,7 +226,6 @@
         private System.Windows.Forms.BindingSource bezecZoznamBindingSource1;
         private System.Windows.Forms.BindingSource bezecZoznamBindingSource;
         private System.Windows.Forms.BindingSource bezecBindingSource;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn MenoBezca;
         private System.Windows.Forms.DataGridViewTextBoxColumn Vek;

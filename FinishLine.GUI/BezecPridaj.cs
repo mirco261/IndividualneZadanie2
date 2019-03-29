@@ -11,9 +11,12 @@ using FinishLine.Core;
 
 namespace FinishLine
 {
-    public partial class UpravaBezca : Form
+    public partial class BezecPridaj : Form
     {
-        public UpravaBezca()
+        /// <summary>
+        /// default, predvyplní záznamy a stačí dopísať meno a uložiť nového bežca
+        /// </summary>
+        public BezecPridaj()
         {
             InitializeComponent();
             cmbKrajiny.DataSource = Staty.krajiny;
@@ -26,13 +29,11 @@ namespace FinishLine
             if (BezecZoznam.ZistiCiIdExistuje(decimal.ToInt16(numID.Value)))
             {
                 int a = decimal.ToInt16(numID.Value);
-                lblID.Text = $"ID{a} už existuje";
+                //lblID.Text = $"ID{a} už existuje";
                 numID.Value++;
-
             }
-
-
         }
+
 
         private void btnUloz_Click(object sender, EventArgs e)
         {
@@ -46,8 +47,6 @@ namespace FinishLine
             {
                  pohlavie = "žena";
             }
-
-
 
             //vytvor nový objekt bežec
             Bezec bezec1 = new Bezec(id, meno, krajina, vek, pohlavie);
@@ -65,23 +64,15 @@ namespace FinishLine
             numVek.Value = 1;
             cmbKrajiny.SelectedValue = "SK";
             rdbMuz.Checked = true;
-
-
-
-
+            
         }
 
         private void rdbZena_CheckedChanged(object sender, EventArgs e)
         {
-
-
-
-
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void btnUlozAzatvor_Click(object sender, EventArgs e)
@@ -108,7 +99,6 @@ namespace FinishLine
 
             //Zatvor frm
             Close();
-
         }
 
         private void btnStorno_Click(object sender, EventArgs e)
@@ -119,6 +109,7 @@ namespace FinishLine
 
         private void numID_ValueChanged(object sender, EventArgs e)
         {
+
             //zistujem a zabranujem užívatelovi aby zadal ID rovnaké aké už bolo
             if (BezecZoznam.ZistiCiIdExistuje(decimal.ToInt16(numID.Value)))
             {

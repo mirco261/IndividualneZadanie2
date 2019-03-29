@@ -1,6 +1,6 @@
 ﻿namespace FinishLine
 {
-    partial class UpravaBezca
+    partial class BezecPridaj
     {
         /// <summary>
         /// Required designer variable.
@@ -96,7 +96,7 @@
             // txtMenoBezca
             // 
             this.txtMenoBezca.Location = new System.Drawing.Point(16, 95);
-            this.txtMenoBezca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMenoBezca.Margin = new System.Windows.Forms.Padding(4);
             this.txtMenoBezca.Name = "txtMenoBezca";
             this.txtMenoBezca.Size = new System.Drawing.Size(201, 22);
             this.txtMenoBezca.TabIndex = 4;
@@ -104,22 +104,33 @@
             // numVek
             // 
             this.numVek.Location = new System.Drawing.Point(16, 159);
-            this.numVek.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numVek.Margin = new System.Windows.Forms.Padding(4);
             this.numVek.Maximum = new decimal(new int[] {
             120,
+            0,
+            0,
+            0});
+            this.numVek.Minimum = new decimal(new int[] {
+            1,
             0,
             0,
             0});
             this.numVek.Name = "numVek";
             this.numVek.Size = new System.Drawing.Size(103, 22);
             this.numVek.TabIndex = 5;
+            this.numVek.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // cmbKrajiny
             // 
             this.cmbKrajiny.DisplayMember = "KrajinaKod";
+            this.cmbKrajiny.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbKrajiny.FormattingEnabled = true;
             this.cmbKrajiny.Location = new System.Drawing.Point(16, 222);
-            this.cmbKrajiny.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbKrajiny.Margin = new System.Windows.Forms.Padding(4);
             this.cmbKrajiny.Name = "cmbKrajiny";
             this.cmbKrajiny.Size = new System.Drawing.Size(201, 24);
             this.cmbKrajiny.TabIndex = 6;
@@ -131,9 +142,9 @@
             this.groupBox1.Controls.Add(this.rdbZena);
             this.groupBox1.Controls.Add(this.rdbMuz);
             this.groupBox1.Location = new System.Drawing.Point(20, 286);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(192, 78);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
@@ -142,7 +153,7 @@
             // 
             this.rdbZena.AutoSize = true;
             this.rdbZena.Location = new System.Drawing.Point(8, 42);
-            this.rdbZena.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbZena.Margin = new System.Windows.Forms.Padding(4);
             this.rdbZena.Name = "rdbZena";
             this.rdbZena.Size = new System.Drawing.Size(62, 21);
             this.rdbZena.TabIndex = 1;
@@ -155,7 +166,7 @@
             // 
             this.rdbMuz.AutoSize = true;
             this.rdbMuz.Location = new System.Drawing.Point(9, 14);
-            this.rdbMuz.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbMuz.Margin = new System.Windows.Forms.Padding(4);
             this.rdbMuz.Name = "rdbMuz";
             this.rdbMuz.Size = new System.Drawing.Size(55, 21);
             this.rdbMuz.TabIndex = 0;
@@ -167,7 +178,7 @@
             // 
             this.btnUlozAzadajNovy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnUlozAzadajNovy.Location = new System.Drawing.Point(16, 389);
-            this.btnUlozAzadajNovy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUlozAzadajNovy.Margin = new System.Windows.Forms.Padding(4);
             this.btnUlozAzadajNovy.Name = "btnUlozAzadajNovy";
             this.btnUlozAzadajNovy.Size = new System.Drawing.Size(196, 37);
             this.btnUlozAzadajNovy.TabIndex = 8;
@@ -179,7 +190,7 @@
             // 
             this.btnStorno.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnStorno.Location = new System.Drawing.Point(13, 478);
-            this.btnStorno.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStorno.Margin = new System.Windows.Forms.Padding(4);
             this.btnStorno.Name = "btnStorno";
             this.btnStorno.Size = new System.Drawing.Size(199, 37);
             this.btnStorno.TabIndex = 9;
@@ -190,7 +201,7 @@
             // numID
             // 
             this.numID.Location = new System.Drawing.Point(16, 34);
-            this.numID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numID.Margin = new System.Windows.Forms.Padding(4);
             this.numID.Maximum = new decimal(new int[] {
             999,
             0,
@@ -242,7 +253,7 @@
             this.lblID.Size = new System.Drawing.Size(0, 17);
             this.lblID.TabIndex = 13;
             // 
-            // UpravaBezca
+            // BezecPridaj
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -261,8 +272,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "UpravaBezca";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(257, 575);
+            this.MinimumSize = new System.Drawing.Size(257, 575);
+            this.Name = "BezecPridaj";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "UpravaBezca";
             ((System.ComponentModel.ISupportInitialize)(this.numVek)).EndInit();

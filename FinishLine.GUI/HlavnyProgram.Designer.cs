@@ -43,12 +43,12 @@
             this.CasDokonceniaKola = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DlzkaKola = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewGrouper1 = new Subro.Controls.DataGridViewGrouper(this.components);
             this.PoradiePoradie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PoradieID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PoradieMeno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PoradieCasUkoncenia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PoradieCelkovyCas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewGrouper1 = new Subro.Controls.DataGridViewGrouper(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.btnNacitajZoznamStatov = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
@@ -63,51 +63,53 @@
             this.uložToolStripMenuItem,
             this.načítajToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(53, 20);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(63, 24);
             this.toolStripMenuItem1.Text = "MENU";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // novýZávodToolStripMenuItem
             // 
             this.novýZávodToolStripMenuItem.Name = "novýZávodToolStripMenuItem";
-            this.novýZávodToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.novýZávodToolStripMenuItem.Size = new System.Drawing.Size(162, 26);
             this.novýZávodToolStripMenuItem.Text = "Nový závod";
             // 
             // uložToolStripMenuItem
             // 
             this.uložToolStripMenuItem.Name = "uložToolStripMenuItem";
-            this.uložToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.uložToolStripMenuItem.Size = new System.Drawing.Size(162, 26);
             this.uložToolStripMenuItem.Text = "Ulož";
             // 
             // načítajToolStripMenuItem
             // 
             this.načítajToolStripMenuItem.Name = "načítajToolStripMenuItem";
-            this.načítajToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.načítajToolStripMenuItem.Size = new System.Drawing.Size(162, 26);
             this.načítajToolStripMenuItem.Text = "Načítaj";
             // 
             // konfiguráciaToolStripMenuItem
             // 
             this.konfiguráciaToolStripMenuItem.Name = "konfiguráciaToolStripMenuItem";
-            this.konfiguráciaToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
-            this.konfiguráciaToolStripMenuItem.Text = "Císelník bežcov";
+            this.konfiguráciaToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
+            this.konfiguráciaToolStripMenuItem.Text = "Číselník bežcov";
             this.konfiguráciaToolStripMenuItem.Click += new System.EventHandler(this.konfiguráciaToolStripMenuItem_Click);
             // 
             // pretekáriToolStripMenuItem
             // 
             this.pretekáriToolStripMenuItem.Name = "pretekáriToolStripMenuItem";
-            this.pretekáriToolStripMenuItem.Size = new System.Drawing.Size(120, 20);
+            this.pretekáriToolStripMenuItem.Size = new System.Drawing.Size(148, 24);
             this.pretekáriToolStripMenuItem.Text = "Nastavenia preteku";
             this.pretekáriToolStripMenuItem.Click += new System.EventHandler(this.pretekáriToolStripMenuItem_Click);
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.konfiguráciaToolStripMenuItem,
             this.pretekáriToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1067, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -120,9 +122,10 @@
             this.Meno,
             this.CasDokonceniaKola,
             this.DlzkaKola});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 124);
+            this.dataGridView1.Location = new System.Drawing.Point(16, 153);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(361, 278);
+            this.dataGridView1.Size = new System.Drawing.Size(481, 342);
             this.dataGridView1.TabIndex = 1;
             // 
             // Poradie
@@ -162,9 +165,10 @@
             this.PoradieMeno,
             this.PoradieCasUkoncenia,
             this.PoradieCelkovyCas});
-            this.dataGridView2.Location = new System.Drawing.Point(400, 124);
+            this.dataGridView2.Location = new System.Drawing.Point(533, 153);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(388, 278);
+            this.dataGridView2.Size = new System.Drawing.Size(517, 342);
             this.dataGridView2.TabIndex = 2;
             // 
             // PoradiePoradie
@@ -195,9 +199,10 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.Location = new System.Drawing.Point(13, 51);
+            this.button1.Location = new System.Drawing.Point(17, 63);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 30);
+            this.button1.Size = new System.Drawing.Size(163, 37);
             this.button1.TabIndex = 3;
             this.button1.Text = "Zahájiť beh";
             this.button1.UseVisualStyleBackColor = true;
@@ -205,9 +210,10 @@
             // btnNacitajZoznamStatov
             // 
             this.btnNacitajZoznamStatov.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnNacitajZoznamStatov.Location = new System.Drawing.Point(640, 51);
+            this.btnNacitajZoznamStatov.Location = new System.Drawing.Point(853, 63);
+            this.btnNacitajZoznamStatov.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNacitajZoznamStatov.Name = "btnNacitajZoznamStatov";
-            this.btnNacitajZoznamStatov.Size = new System.Drawing.Size(122, 30);
+            this.btnNacitajZoznamStatov.Size = new System.Drawing.Size(163, 37);
             this.btnNacitajZoznamStatov.TabIndex = 4;
             this.btnNacitajZoznamStatov.Text = "NacitajZoznamStatov";
             this.btnNacitajZoznamStatov.UseVisualStyleBackColor = true;
@@ -215,15 +221,16 @@
             // 
             // HlavnyProgram
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.btnNacitajZoznamStatov);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "HlavnyProgram";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Evidencia bežeckých výkonov";

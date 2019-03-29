@@ -23,6 +23,26 @@ namespace FinishLine
             zoznamBezcov.Add(ID, bezec1);
         }
 
+        public static void zoznamBezcovEdituj(int ID, Bezec bezec1)
+        {
+            zoznamBezcov[ID].ID = bezec1.ID;
+            zoznamBezcov[ID].Krajina = bezec1.Krajina;
+            zoznamBezcov[ID].Meno = bezec1.Meno;
+            zoznamBezcov[ID].Pohlavie = bezec1.Pohlavie;
+            zoznamBezcov[ID].Vek = bezec1.Vek;
+        }
+
+
+        /// <summary>
+        /// Vymaže záznam v dictionary
+        /// </summary>
+        /// <param name="ID"></param>
+        public static void zoznamBezcovVymaz(int ID)
+        {
+            zoznamBezcov.Remove(ID);
+        }
+
+
         /// <summary>
         /// robí výpis do outputu, či sa vložili správne údaje
         /// </summary>

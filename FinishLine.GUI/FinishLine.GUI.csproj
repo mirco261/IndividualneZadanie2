@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BezecUprav.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BezecUprav.Designer.cs">
+      <DependentUpon>BezecUprav.cs</DependentUpon>
+    </Compile>
     <Compile Include="HlavnyProgram.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,12 +78,15 @@
     <Compile Include="Subro.Controls.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UpravaBezca.cs">
+    <Compile Include="BezecPridaj.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UpravaBezca.Designer.cs">
-      <DependentUpon>UpravaBezca.cs</DependentUpon>
+    <Compile Include="BezecPridaj.Designer.cs">
+      <DependentUpon>BezecPridaj.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BezecUprav.resx">
+      <DependentUpon>BezecUprav.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HlavnyProgram.resx">
       <DependentUpon>HlavnyProgram.cs</DependentUpon>
     </EmbeddedResource>
@@ -97,8 +106,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UpravaBezca.resx">
-      <DependentUpon>UpravaBezca.cs</DependentUpon>
+    <EmbeddedResource Include="BezecPridaj.resx">
+      <DependentUpon>BezecPridaj.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Bezec.datasource" />
