@@ -52,7 +52,7 @@ namespace FinishLine
             Bezec bezec1 = new Bezec(id, meno, krajina, vek, pohlavie);
 
             //Zapíš bežec do zoznamu
-            BezecZoznam.zoznamBezcovPridaj(id.GetHashCode(), bezec1);
+            BezecZoznam.zoznamBezcovPridaj(id, bezec1);
 
             //vypíš bežca do konzoly aby si si bol istý že ho pridalo
             BezecZoznam.zoznamBezcovVypis();

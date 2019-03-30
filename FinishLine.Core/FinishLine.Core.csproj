@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bezec.cs" />
+    <Compile Include="BezecVysledky.cs" />
+    <Compile Include="BezecVysledkyZoznam.cs" />
     <Compile Include="ePohlavie.cs" />
     <Compile Include="FileTxt.cs" />
     <Compile Include="Staty.cs" />

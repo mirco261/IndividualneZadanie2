@@ -22,7 +22,11 @@ namespace FinishLine
         {
             zoznamBezcov.Add(ID, bezec1);
         }
-
+        /// <summary>
+        /// editovanie údajov o bežcoch
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <param name="bezec1"></param>
         public static void zoznamBezcovEdituj(int ID, Bezec bezec1)
         {
             zoznamBezcov[ID].ID = bezec1.ID;
@@ -74,6 +78,15 @@ namespace FinishLine
             return false;
         }
 
+        public static string BezecDajMeno(int id)
+        {
+            return zoznamBezcov[id].Meno;
+        }
+
+
+        /// <summary>
+        /// Zmažem všetko čo je v dictionary aby som ho naplnil novými hodnotami
+        /// </summary>
         public static void ZmazVsetkoVdictionary()
         {
 

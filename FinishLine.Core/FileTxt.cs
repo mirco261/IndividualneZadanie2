@@ -68,6 +68,37 @@ namespace FinishLine.Core
         }
 
         /// <summary>
+        /// načítaj počet kôl, ktoré sú zapísané v nastaveniach
+        /// </summary>
+        /// <returns></returns>
+        public static int NacitajPocetKol()
+        {
+            string[] import = System.IO.File.ReadAllLines(pathBezciSettings);
+
+            //nastavím oddelovač
+
+            string[] zaznam = import[0].Split('\t');
+            int PocetKol = int.Parse(zaznam[1]);
+            return PocetKol;
+        }
+
+        /// <summary>
+        /// načítaj počet víťazov, ktoré sú zapísané v nastaveniach
+        /// </summary>
+        /// <returns></returns>
+        public static int NacitajPocetPoradi()
+        {
+            string[] import = System.IO.File.ReadAllLines(pathBezciSettings);
+
+            //nastavím oddelovač
+
+            string[] zaznam = import[0].Split('\t');
+            int PocetKol = int.Parse(zaznam[2]);
+            return PocetKol;
+        }
+
+
+        /// <summary>
         /// Zapisujem do txt nastavenia odoslané cez formulár
         /// </summary>
         /// <param name="dlzkaKola"></param>

@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.btnZavodZahajit = new System.Windows.Forms.Button();
+            this.lblZavodZacal = new System.Windows.Forms.Label();
+            this.lblZaciatokZavodu = new System.Windows.Forms.Label();
+            this.lblTextInfo = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnZapisCas = new System.Windows.Forms.Button();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.novýZávodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uložToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -36,25 +42,84 @@
             this.konfiguráciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pretekáriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Poradie = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Meno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CasDokonceniaKola = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DlzkaKola = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.PoradiePoradie = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PoradieID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PoradieMeno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PoradieCasUkoncenia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PoradieCelkovyCas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.numCisloBezca = new System.Windows.Forms.NumericUpDown();
+            this.lblTextCiExistujeZadaneID = new System.Windows.Forms.Label();
             this.dataGridViewGrouper1 = new Subro.Controls.DataGridViewGrouper(this.components);
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnNacitajZoznamStatov = new System.Windows.Forms.Button();
-            this.menuStrip1.SuspendLayout();
+            this.groupingSource1 = new Subro.Controls.GroupingSource();
+            this.dataGridViewGrouper2 = new Subro.Controls.DataGridViewGrouper(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numCisloBezca)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupingSource1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // btnZavodZahajit
+            // 
+            this.btnZavodZahajit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnZavodZahajit.Location = new System.Drawing.Point(16, 55);
+            this.btnZavodZahajit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnZavodZahajit.Name = "btnZavodZahajit";
+            this.btnZavodZahajit.Size = new System.Drawing.Size(163, 40);
+            this.btnZavodZahajit.TabIndex = 3;
+            this.btnZavodZahajit.Text = "Zahájiť beh";
+            this.btnZavodZahajit.UseVisualStyleBackColor = true;
+            this.btnZavodZahajit.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // lblZavodZacal
+            // 
+            this.lblZavodZacal.AutoSize = true;
+            this.lblZavodZacal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblZavodZacal.Location = new System.Drawing.Point(197, 55);
+            this.lblZavodZacal.Name = "lblZavodZacal";
+            this.lblZavodZacal.Size = new System.Drawing.Size(109, 20);
+            this.lblZavodZacal.TabIndex = 4;
+            this.lblZavodZacal.Text = "Závod začal";
+            this.lblZavodZacal.Visible = false;
+            // 
+            // lblZaciatokZavodu
+            // 
+            this.lblZaciatokZavodu.AutoSize = true;
+            this.lblZaciatokZavodu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblZaciatokZavodu.Location = new System.Drawing.Point(197, 75);
+            this.lblZaciatokZavodu.Name = "lblZaciatokZavodu";
+            this.lblZaciatokZavodu.Size = new System.Drawing.Size(0, 20);
+            this.lblZaciatokZavodu.TabIndex = 5;
+            // 
+            // lblTextInfo
+            // 
+            this.lblTextInfo.AutoSize = true;
+            this.lblTextInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblTextInfo.Location = new System.Drawing.Point(468, 55);
+            this.lblTextInfo.Name = "lblTextInfo";
+            this.lblTextInfo.Size = new System.Drawing.Size(397, 17);
+            this.lblTextInfo.TabIndex = 7;
+            this.lblTextInfo.Text = "Zadajte číslo bežca, ktorý prebehol cieľovou rovinkou";
+            this.lblTextInfo.Visible = false;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(16, 178);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(732, 525);
+            this.dataGridView1.TabIndex = 8;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // btnZapisCas
+            // 
+            this.btnZapisCas.Location = new System.Drawing.Point(595, 75);
+            this.btnZapisCas.Name = "btnZapisCas";
+            this.btnZapisCas.Size = new System.Drawing.Size(75, 36);
+            this.btnZapisCas.TabIndex = 9;
+            this.btnZapisCas.Text = "Zapíš";
+            this.btnZapisCas.UseVisualStyleBackColor = true;
+            this.btnZapisCas.Visible = false;
+            this.btnZapisCas.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // toolStripMenuItem1
             // 
@@ -109,142 +174,118 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1067, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1496, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // dataGridView1
+            // dataGridView3
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Poradie,
-            this.ID,
-            this.Meno,
-            this.CasDokonceniaKola,
-            this.DlzkaKola});
-            this.dataGridView1.Location = new System.Drawing.Point(16, 153);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(481, 342);
-            this.dataGridView1.TabIndex = 1;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(754, 178);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowTemplate.Height = 24;
+            this.dataGridView3.Size = new System.Drawing.Size(732, 525);
+            this.dataGridView3.TabIndex = 10;
             // 
-            // Poradie
+            // label1
             // 
-            this.Poradie.HeaderText = "Poradie";
-            this.Poradie.Name = "Poradie";
-            this.Poradie.Width = 25;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(12, 155);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(170, 20);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Priebežné výsledky";
             // 
-            // ID
+            // label2
             // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.Width = 40;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(750, 155);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(139, 20);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Poradie víťazov";
             // 
-            // Meno
+            // numCisloBezca
             // 
-            this.Meno.HeaderText = "Meno";
-            this.Meno.Name = "Meno";
-            this.Meno.Width = 50;
+            this.numCisloBezca.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numCisloBezca.Location = new System.Drawing.Point(469, 75);
+            this.numCisloBezca.Name = "numCisloBezca";
+            this.numCisloBezca.Size = new System.Drawing.Size(120, 36);
+            this.numCisloBezca.TabIndex = 13;
+            this.numCisloBezca.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numCisloBezca.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numCisloBezca.Visible = false;
+            this.numCisloBezca.ValueChanged += new System.EventHandler(this.numCisloBezca_ValueChanged);
+            this.numCisloBezca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numCisloBezca_KeyPress);
+            this.numCisloBezca.Leave += new System.EventHandler(this.button1_Click_1);
+            this.numCisloBezca.Validating += new System.ComponentModel.CancelEventHandler(this.numCisloBezca_Validating);
             // 
-            // CasDokonceniaKola
+            // lblTextCiExistujeZadaneID
             // 
-            this.CasDokonceniaKola.HeaderText = "Čas dokončenia kola";
-            this.CasDokonceniaKola.Name = "CasDokonceniaKola";
+            this.lblTextCiExistujeZadaneID.AutoSize = true;
+            this.lblTextCiExistujeZadaneID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblTextCiExistujeZadaneID.ForeColor = System.Drawing.Color.Maroon;
+            this.lblTextCiExistujeZadaneID.Location = new System.Drawing.Point(466, 114);
+            this.lblTextCiExistujeZadaneID.Name = "lblTextCiExistujeZadaneID";
+            this.lblTextCiExistujeZadaneID.Size = new System.Drawing.Size(0, 17);
+            this.lblTextCiExistujeZadaneID.TabIndex = 14;
+            this.lblTextCiExistujeZadaneID.Visible = false;
             // 
-            // DlzkaKola
+            // dataGridViewGrouper1
             // 
-            this.DlzkaKola.HeaderText = "DlzkaKola";
-            this.DlzkaKola.Name = "DlzkaKola";
+            this.dataGridViewGrouper1.SortOrder = System.Windows.Forms.SortOrder.Descending;
             // 
-            // dataGridView2
+            // dataGridViewGrouper2
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PoradiePoradie,
-            this.PoradieID,
-            this.PoradieMeno,
-            this.PoradieCasUkoncenia,
-            this.PoradieCelkovyCas});
-            this.dataGridView2.Location = new System.Drawing.Point(533, 153);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(517, 342);
-            this.dataGridView2.TabIndex = 2;
-            // 
-            // PoradiePoradie
-            // 
-            this.PoradiePoradie.HeaderText = "Poradie";
-            this.PoradiePoradie.Name = "PoradiePoradie";
-            // 
-            // PoradieID
-            // 
-            this.PoradieID.HeaderText = "ID";
-            this.PoradieID.Name = "PoradieID";
-            // 
-            // PoradieMeno
-            // 
-            this.PoradieMeno.HeaderText = "Meno";
-            this.PoradieMeno.Name = "PoradieMeno";
-            // 
-            // PoradieCasUkoncenia
-            // 
-            this.PoradieCasUkoncenia.HeaderText = "Čas ukončenia";
-            this.PoradieCasUkoncenia.Name = "PoradieCasUkoncenia";
-            // 
-            // PoradieCelkovyCas
-            // 
-            this.PoradieCelkovyCas.HeaderText = "Celkový čas";
-            this.PoradieCelkovyCas.Name = "PoradieCelkovyCas";
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.Location = new System.Drawing.Point(17, 63);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(163, 37);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Zahájiť beh";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // btnNacitajZoznamStatov
-            // 
-            this.btnNacitajZoznamStatov.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnNacitajZoznamStatov.Location = new System.Drawing.Point(853, 63);
-            this.btnNacitajZoznamStatov.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnNacitajZoznamStatov.Name = "btnNacitajZoznamStatov";
-            this.btnNacitajZoznamStatov.Size = new System.Drawing.Size(163, 37);
-            this.btnNacitajZoznamStatov.TabIndex = 4;
-            this.btnNacitajZoznamStatov.Text = "NacitajZoznamStatov";
-            this.btnNacitajZoznamStatov.UseVisualStyleBackColor = true;
-            this.btnNacitajZoznamStatov.Click += new System.EventHandler(this.button2_Click);
+            this.dataGridViewGrouper2.DataGridView = this.dataGridView1;
+            this.dataGridViewGrouper2.SortOrder = System.Windows.Forms.SortOrder.Descending;
             // 
             // HlavnyProgram
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.btnNacitajZoznamStatov);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView2);
+            this.ClientSize = new System.Drawing.Size(1496, 715);
+            this.Controls.Add(this.lblTextCiExistujeZadaneID);
+            this.Controls.Add(this.numCisloBezca);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dataGridView3);
+            this.Controls.Add(this.btnZapisCas);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.lblTextInfo);
+            this.Controls.Add(this.lblZaciatokZavodu);
+            this.Controls.Add(this.lblZavodZacal);
+            this.Controls.Add(this.btnZavodZahajit);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "HlavnyProgram";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Evidencia bežeckých výkonov";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numCisloBezca)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
+        private System.Windows.Forms.Button btnZavodZahajit;
+        private System.Windows.Forms.Label lblZavodZacal;
+        private System.Windows.Forms.Label lblZaciatokZavodu;
+        private System.Windows.Forms.Label lblTextInfo;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnZapisCas;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem novýZávodToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem uložToolStripMenuItem;
@@ -252,21 +293,14 @@
         private System.Windows.Forms.ToolStripMenuItem konfiguráciaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pretekáriToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Poradie;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Meno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CasDokonceniaKola;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DlzkaKola;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PoradiePoradie;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PoradieID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PoradieMeno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PoradieCasUkoncenia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PoradieCelkovyCas;
-        private Subro.Controls.DataGridViewGrouper dataGridViewGrouper1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnNacitajZoznamStatov;
+        private Subro.Controls.GroupingSource groupingSource1;
+        private Subro.Controls.DataGridViewGrouper dataGridViewGrouper2;
+        public Subro.Controls.DataGridViewGrouper dataGridViewGrouper1;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown numCisloBezca;
+        private System.Windows.Forms.Label lblTextCiExistujeZadaneID;
     }
 }
 

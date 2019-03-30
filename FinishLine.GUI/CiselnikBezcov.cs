@@ -54,6 +54,8 @@ namespace FinishLine
         {
             BezecPridaj f = new BezecPridaj();
             f.ShowDialog(this);
+            dgwCiselnikBezcov.Refresh();
+            dgwCiselnikBezcov.Update();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
