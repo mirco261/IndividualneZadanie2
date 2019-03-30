@@ -23,7 +23,7 @@ namespace FinishLine
             InitializeComponent();
 
             //zisti či existuje subor
-            if (FileTxt.SuborExistuje())
+            if (FileTxt.SuborExistujeNastavenia())
             {
                 string nacitaneNastavenia = FileTxt.NacitajNastavenia();
                 string[] nacitaneNastaveniaPoRiadkoch = nacitaneNastavenia.Split('\t');

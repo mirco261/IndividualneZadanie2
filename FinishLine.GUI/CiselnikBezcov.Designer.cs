@@ -46,6 +46,7 @@
             this.krajinyBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.bezecZoznamBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bezecBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwCiselnikBezcov)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bezecZoznamBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statBindingSource2)).BeginInit();
@@ -134,7 +135,7 @@
             // btnUpravBezca
             // 
             this.btnUpravBezca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnUpravBezca.Location = new System.Drawing.Point(286, 506);
+            this.btnUpravBezca.Location = new System.Drawing.Point(204, 506);
             this.btnUpravBezca.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpravBezca.Name = "btnUpravBezca";
             this.btnUpravBezca.Size = new System.Drawing.Size(180, 94);
@@ -146,7 +147,7 @@
             // btnVymazBezca
             // 
             this.btnVymazBezca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnVymazBezca.Location = new System.Drawing.Point(551, 506);
+            this.btnVymazBezca.Location = new System.Drawing.Point(392, 506);
             this.btnVymazBezca.Margin = new System.Windows.Forms.Padding(4);
             this.btnVymazBezca.Name = "btnVymazBezca";
             this.btnVymazBezca.Size = new System.Drawing.Size(180, 94);
@@ -183,12 +184,25 @@
             // 
             this.bezecBindingSource.DataSource = typeof(FinishLine.Bezec);
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnRefresh.Location = new System.Drawing.Point(580, 506);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(164, 94);
+            this.btnRefresh.TabIndex = 4;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // CiselnikBezcov
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(744, 609);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnVymazBezca);
             this.Controls.Add(this.btnUpravBezca);
             this.Controls.Add(this.btnPridajBezca);
@@ -198,6 +212,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Zoznam bežcov";
             this.Activated += new System.EventHandler(this.CiselnikBezcov_Activated);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CiselnikBezcov_FormClosing);
             this.Load += new System.EventHandler(this.CiselnikBezcov_Load);
             this.Shown += new System.EventHandler(this.CiselnikBezcov_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dgwCiselnikBezcov)).EndInit();
@@ -231,5 +246,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Vek;
         private System.Windows.Forms.DataGridViewTextBoxColumn Krajina;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pohlavie;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

@@ -73,5 +73,12 @@ namespace FinishLine
             }
             return false;
         }
+
+        public static void ZmazVsetkoVdictionary()
+        {
+
+                zoznamBezcov.Clear();
+
+        }
     }
 }

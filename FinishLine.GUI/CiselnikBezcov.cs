@@ -17,6 +17,10 @@ namespace FinishLine
         {
             InitializeComponent();
             Staty.NacitajZoznamStatov();
+            if (FileTxt.SuborExistujeZoznam())
+            {
+                FileTxt.NacitajZoznamBezcov();
+            }
             dgwCiselnikBezcov.DataSource = BezecZoznam.zoznamBezcov.Values.ToList<Bezec>();
         }
 
@@ -97,6 +101,17 @@ namespace FinishLine
             int id = (int)(dgwCiselnikBezcov.Rows[x].Cells[0].Value);
             BezecUprav f = new BezecUprav(id);
             f.ShowDialog(this);
+        }
+
+        private void CiselnikBezcov_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            FileTxt.ZapisZoznamBezcov();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            dgwCiselnikBezcov.Refresh();
+            dgwCiselnikBezcov.Update();
         }
     }
 }

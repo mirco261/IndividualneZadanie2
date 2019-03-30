@@ -64,6 +64,8 @@ namespace FinishLine
             numVek.Value = 1;
             cmbKrajiny.SelectedValue = "SK";
             rdbMuz.Checked = true;
+
+            
             
         }
 
