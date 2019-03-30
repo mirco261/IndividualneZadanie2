@@ -75,7 +75,7 @@
             this.dgwCiselnikBezcov.Margin = new System.Windows.Forms.Padding(4);
             this.dgwCiselnikBezcov.Name = "dgwCiselnikBezcov";
             this.dgwCiselnikBezcov.ReadOnly = true;
-            this.dgwCiselnikBezcov.Size = new System.Drawing.Size(593, 498);
+            this.dgwCiselnikBezcov.Size = new System.Drawing.Size(744, 498);
             this.dgwCiselnikBezcov.TabIndex = 0;
             this.dgwCiselnikBezcov.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwCiselnikBezcov_CellContentClick);
             this.dgwCiselnikBezcov.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgwCiselnikBezcov_CellFormatting);
@@ -134,7 +134,7 @@
             // btnUpravBezca
             // 
             this.btnUpravBezca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnUpravBezca.Location = new System.Drawing.Point(204, 506);
+            this.btnUpravBezca.Location = new System.Drawing.Point(286, 506);
             this.btnUpravBezca.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpravBezca.Name = "btnUpravBezca";
             this.btnUpravBezca.Size = new System.Drawing.Size(180, 94);
@@ -146,7 +146,7 @@
             // btnVymazBezca
             // 
             this.btnVymazBezca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnVymazBezca.Location = new System.Drawing.Point(392, 506);
+            this.btnVymazBezca.Location = new System.Drawing.Point(551, 506);
             this.btnVymazBezca.Margin = new System.Windows.Forms.Padding(4);
             this.btnVymazBezca.Name = "btnVymazBezca";
             this.btnVymazBezca.Size = new System.Drawing.Size(180, 94);
@@ -188,7 +188,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(593, 609);
+            this.ClientSize = new System.Drawing.Size(744, 609);
             this.Controls.Add(this.btnVymazBezca);
             this.Controls.Add(this.btnUpravBezca);
             this.Controls.Add(this.btnPridajBezca);
