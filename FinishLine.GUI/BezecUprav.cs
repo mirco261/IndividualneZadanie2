@@ -13,6 +13,7 @@ namespace FinishLine
     public partial class BezecUprav : Form
     {
         int formId;
+
         public BezecUprav(int id)
         {
             InitializeComponent();
@@ -44,10 +45,14 @@ namespace FinishLine
                     numID.Value++;
                 }
             }
+
+            //vymažem pôvodné id bežca v dictionary
+            BezecZoznam.zoznamBezcovVymaz(id);
         }
 
         private void btnUlozAzatvor_Click(object sender, EventArgs e)
         {
+
             // načítaj z každého políčka do premenných hodnoty
             string meno = txtMenoBezca.Text.ToString();
             int id = decimal.ToInt16(numID.Value);
@@ -63,7 +68,7 @@ namespace FinishLine
             Bezec bezec1 = new Bezec(id, meno, krajina, vek, pohlavie);
 
             //Zapíš bežec do zoznamu
-            BezecZoznam.zoznamBezcovEdituj(id ,bezec1);
+            BezecZoznam.zoznamBezcovPridaj(id ,bezec1);
 
             //vypíš bežca do konzoly aby si si bol istý že ho pridalo
             BezecZoznam.zoznamBezcovVypis();

@@ -34,7 +34,6 @@
             this.lblZaciatokZavodu = new System.Windows.Forms.Label();
             this.lblTextInfo = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnZapisCas = new System.Windows.Forms.Button();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.novýZávodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uložToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -109,17 +108,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(732, 525);
             this.dataGridView1.TabIndex = 8;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // btnZapisCas
-            // 
-            this.btnZapisCas.Location = new System.Drawing.Point(595, 75);
-            this.btnZapisCas.Name = "btnZapisCas";
-            this.btnZapisCas.Size = new System.Drawing.Size(75, 36);
-            this.btnZapisCas.TabIndex = 9;
-            this.btnZapisCas.Text = "Zapíš";
-            this.btnZapisCas.UseVisualStyleBackColor = true;
-            this.btnZapisCas.Visible = false;
-            this.btnZapisCas.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // toolStripMenuItem1
             // 
@@ -211,6 +199,16 @@
             // 
             this.numCisloBezca.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.numCisloBezca.Location = new System.Drawing.Point(469, 75);
+            this.numCisloBezca.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.numCisloBezca.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numCisloBezca.Name = "numCisloBezca";
             this.numCisloBezca.Size = new System.Drawing.Size(120, 36);
             this.numCisloBezca.TabIndex = 13;
@@ -256,7 +254,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView3);
-            this.Controls.Add(this.btnZapisCas);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lblTextInfo);
             this.Controls.Add(this.lblZaciatokZavodu);
@@ -285,7 +282,6 @@
         private System.Windows.Forms.Label lblZaciatokZavodu;
         private System.Windows.Forms.Label lblTextInfo;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btnZapisCas;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem novýZávodToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem uložToolStripMenuItem;

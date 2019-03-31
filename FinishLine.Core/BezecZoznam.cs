@@ -29,6 +29,7 @@ namespace FinishLine
         /// <param name="bezec1"></param>
         public static void zoznamBezcovEdituj(int ID, Bezec bezec1)
         {
+            //uložím ho s novými údajmi
             zoznamBezcov[ID].ID = bezec1.ID;
             zoznamBezcov[ID].Krajina = bezec1.Krajina;
             zoznamBezcov[ID].Meno = bezec1.Meno;

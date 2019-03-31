@@ -54,13 +54,17 @@ namespace FinishLine
         {
         }
 
+        /// <summary>
+        /// Tlačidlo zahájiť beh
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             lblZaciatokZavodu.Text = DateTime.Now.ToString();
             lblZavodZacal.Visible = true;
             lblZaciatokZavodu.Visible = true;
             numCisloBezca.Visible = true;
-            btnZapisCas.Visible = true;
             lblTextInfo.Visible = true;
             
         }
@@ -75,6 +79,12 @@ namespace FinishLine
 
         }
 
+
+        /// <summary>
+        /// Tlačidlo pridaj bežca do vyhodnotenia
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click_1(object sender, EventArgs e)
         {
             int id = (int)numCisloBezca.Value;
@@ -100,7 +110,50 @@ namespace FinishLine
 
         private void numCisloBezca_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+            if (e.KeyChar == (char)13)
+            {
+                //zisti, či dané ID existuje
+                if (BezecZoznam.ZistiCiIdExistuje((int)numCisloBezca.Value))
+                {
+                    lblTextCiExistujeZadaneID.Visible = false;
+
+                    //vytiahnem si ID z numUpDown
+                    int id = (int)numCisloBezca.Value;
+                    string meno = BezecZoznam.BezecDajMeno(id);
+                    DateTime teraz = DateTime.Now;
+                    TimeSpan dlzka = teraz - DateTime.Parse(lblZaciatokZavodu.Text.ToString());
+
+                    int kolo = BezecVysledkyZoznam.VysledkyHladajKoloBezca(id);
+                    Debug.WriteLine($"1 Kolo bežca z listu :{kolo}");
+                    kolo++;
+                    BezecVysledky bezec1 = new BezecVysledky(id, meno, teraz, dlzka, kolo);
+                    Debug.WriteLine($"2 Kolo bežca z listu :{kolo}");
+
+                    BezecVysledkyZoznam.VysledkyPridaj(bezec1);
+
+                    //zobraz v outpute vysledky
+                    BezecVysledkyZoznam.VysledkyZobraz();
+
+                    dataGridView1.DataSource = BezecVysledkyZoznam.vysledky.ToList<BezecVysledky>();
+
+                    dataGridView3.DataSource = BezecVysledkyZoznam.vysledkyTop(FileTxt.NacitajPocetKol(), FileTxt.NacitajPocetPoradi());
+
+                }
+                else
+                {
+                    lblTextCiExistujeZadaneID.Visible = true;
+                    lblTextCiExistujeZadaneID.Text = ($"ID s číslom {(int)numCisloBezca.Value} neexistuje");
+                }
+
+                
+
+                numCisloBezca.Text = "";
+            }
+
+            else if (e.KeyChar == (char)27)
+               this.Close();
+
+
         }
 
         private void numCisloBezca_Validating(object sender, CancelEventArgs e)
