@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HlavnyProgram));
             this.btnZavodZahajit = new System.Windows.Forms.Button();
             this.lblZavodZacal = new System.Windows.Forms.Label();
             this.lblZaciatokZavodu = new System.Windows.Forms.Label();
@@ -49,6 +50,8 @@
             this.dataGridViewGrouper1 = new Subro.Controls.DataGridViewGrouper(this.components);
             this.groupingSource1 = new Subro.Controls.GroupingSource();
             this.dataGridViewGrouper2 = new Subro.Controls.DataGridViewGrouper(this.components);
+            this.lblNavodNadpis = new System.Windows.Forms.Label();
+            this.lblNavodText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -63,7 +66,7 @@
             this.btnZavodZahajit.Margin = new System.Windows.Forms.Padding(4);
             this.btnZavodZahajit.Name = "btnZavodZahajit";
             this.btnZavodZahajit.Size = new System.Drawing.Size(163, 40);
-            this.btnZavodZahajit.TabIndex = 3;
+            this.btnZavodZahajit.TabIndex = 1;
             this.btnZavodZahajit.Text = "Zahájiť beh";
             this.btnZavodZahajit.UseVisualStyleBackColor = true;
             this.btnZavodZahajit.Click += new System.EventHandler(this.button1_Click);
@@ -75,7 +78,7 @@
             this.lblZavodZacal.Location = new System.Drawing.Point(197, 55);
             this.lblZavodZacal.Name = "lblZavodZacal";
             this.lblZavodZacal.Size = new System.Drawing.Size(109, 20);
-            this.lblZavodZacal.TabIndex = 4;
+            this.lblZavodZacal.TabIndex = 5;
             this.lblZavodZacal.Text = "Závod začal";
             this.lblZavodZacal.Visible = false;
             // 
@@ -86,7 +89,7 @@
             this.lblZaciatokZavodu.Location = new System.Drawing.Point(197, 75);
             this.lblZaciatokZavodu.Name = "lblZaciatokZavodu";
             this.lblZaciatokZavodu.Size = new System.Drawing.Size(0, 20);
-            this.lblZaciatokZavodu.TabIndex = 5;
+            this.lblZaciatokZavodu.TabIndex = 6;
             // 
             // lblTextInfo
             // 
@@ -94,9 +97,9 @@
             this.lblTextInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblTextInfo.Location = new System.Drawing.Point(468, 55);
             this.lblTextInfo.Name = "lblTextInfo";
-            this.lblTextInfo.Size = new System.Drawing.Size(397, 17);
+            this.lblTextInfo.Size = new System.Drawing.Size(273, 17);
             this.lblTextInfo.TabIndex = 7;
-            this.lblTextInfo.Text = "Zadajte číslo bežca, ktorý prebehol cieľovou rovinkou";
+            this.lblTextInfo.Text = "Zadajte číslo bežca a stlačte ENTER";
             this.lblTextInfo.Visible = false;
             // 
             // dataGridView1
@@ -106,7 +109,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(732, 525);
-            this.dataGridView1.TabIndex = 8;
+            this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // toolStripMenuItem1
@@ -173,7 +176,7 @@
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowTemplate.Height = 24;
             this.dataGridView3.Size = new System.Drawing.Size(732, 525);
-            this.dataGridView3.TabIndex = 10;
+            this.dataGridView3.TabIndex = 4;
             // 
             // label1
             // 
@@ -182,7 +185,7 @@
             this.label1.Location = new System.Drawing.Point(12, 155);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(170, 20);
-            this.label1.TabIndex = 11;
+            this.label1.TabIndex = 9;
             this.label1.Text = "Priebežné výsledky";
             // 
             // label2
@@ -192,7 +195,7 @@
             this.label2.Location = new System.Drawing.Point(750, 155);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(139, 20);
-            this.label2.TabIndex = 12;
+            this.label2.TabIndex = 10;
             this.label2.Text = "Poradie víťazov";
             // 
             // numCisloBezca
@@ -211,7 +214,7 @@
             0});
             this.numCisloBezca.Name = "numCisloBezca";
             this.numCisloBezca.Size = new System.Drawing.Size(120, 36);
-            this.numCisloBezca.TabIndex = 13;
+            this.numCisloBezca.TabIndex = 2;
             this.numCisloBezca.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numCisloBezca.Value = new decimal(new int[] {
             1,
@@ -232,7 +235,7 @@
             this.lblTextCiExistujeZadaneID.Location = new System.Drawing.Point(466, 114);
             this.lblTextCiExistujeZadaneID.Name = "lblTextCiExistujeZadaneID";
             this.lblTextCiExistujeZadaneID.Size = new System.Drawing.Size(0, 17);
-            this.lblTextCiExistujeZadaneID.TabIndex = 14;
+            this.lblTextCiExistujeZadaneID.TabIndex = 8;
             this.lblTextCiExistujeZadaneID.Visible = false;
             // 
             // dataGridViewGrouper1
@@ -244,11 +247,32 @@
             this.dataGridViewGrouper2.DataGridView = this.dataGridView1;
             this.dataGridViewGrouper2.SortOrder = System.Windows.Forms.SortOrder.Descending;
             // 
+            // lblNavodNadpis
+            // 
+            this.lblNavodNadpis.AutoSize = true;
+            this.lblNavodNadpis.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblNavodNadpis.Location = new System.Drawing.Point(1028, 34);
+            this.lblNavodNadpis.Name = "lblNavodNadpis";
+            this.lblNavodNadpis.Size = new System.Drawing.Size(267, 20);
+            this.lblNavodNadpis.TabIndex = 11;
+            this.lblNavodNadpis.Text = "Návod na používanie programu";
+            // 
+            // lblNavodText
+            // 
+            this.lblNavodText.AutoSize = true;
+            this.lblNavodText.Location = new System.Drawing.Point(1032, 58);
+            this.lblNavodText.Name = "lblNavodText";
+            this.lblNavodText.Size = new System.Drawing.Size(388, 102);
+            this.lblNavodText.TabIndex = 12;
+            this.lblNavodText.Text = resources.GetString("lblNavodText.Text");
+            // 
             // HlavnyProgram
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1496, 715);
+            this.Controls.Add(this.lblNavodText);
+            this.Controls.Add(this.lblNavodNadpis);
             this.Controls.Add(this.lblTextCiExistujeZadaneID);
             this.Controls.Add(this.numCisloBezca);
             this.Controls.Add(this.label2);
@@ -297,6 +321,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown numCisloBezca;
         private System.Windows.Forms.Label lblTextCiExistujeZadaneID;
+        private System.Windows.Forms.Label lblNavodNadpis;
+        private System.Windows.Forms.Label lblNavodText;
     }
 }
 

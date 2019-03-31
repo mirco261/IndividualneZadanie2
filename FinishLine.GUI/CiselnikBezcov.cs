@@ -22,6 +22,10 @@ namespace FinishLine
                 FileTxt.NacitajZoznamBezcov();
             }
             dgwCiselnikBezcov.DataSource = BezecZoznam.zoznamBezcov.Values.ToList<Bezec>();
+
+
+            //skúšal som zoradzovanie ale neuspešne
+            //dgwCiselnikBezcov.Sort(dgwCiselnikBezcov.Columns[0], System.ComponentModel.ListSortDirection.Ascending);
         }
 
         /// <summary>

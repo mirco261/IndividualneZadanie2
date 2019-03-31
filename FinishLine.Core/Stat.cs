@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinishLine
+namespace FinishLine.Core
 {
     /// <summary>
     /// objekt štát, ktorý má kód a názov

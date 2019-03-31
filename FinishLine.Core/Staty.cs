@@ -9,7 +9,7 @@ using KBCsv;
 using FinishLine.Core;
 
 
-namespace FinishLine
+namespace FinishLine.Core
 {
     public static class Staty
     {

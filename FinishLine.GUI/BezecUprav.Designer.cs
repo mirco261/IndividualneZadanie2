@@ -1,4 +1,4 @@
-﻿namespace FinishLine
+﻿namespace FinishLine.Core
 {
     partial class BezecUprav
     {

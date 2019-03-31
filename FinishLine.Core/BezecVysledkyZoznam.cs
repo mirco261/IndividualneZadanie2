@@ -9,7 +9,7 @@ namespace FinishLine.Core
 {
     public class BezecVysledkyZoznam
     {
-        //vytvorenie Stack
+        //vytvorenie Listu, kde si ukladám výsledky bežca
         public static List<BezecVysledky> vysledky = new List<BezecVysledky>();
 
         public static void VysledkyPridaj(BezecVysledky zaznam)
@@ -35,6 +35,26 @@ namespace FinishLine.Core
             }
             return maxKolo;
         }
+
+        /// <summary>
+        /// Vráti mi aký bol čas zápisu predchádzajúceho kola, aby som zistil koľko trvalo aktuálne kolo
+        /// </summary>
+        /// <param name="id">ID bežca</param>
+        /// <param name="kolo">Predchádzajúce kolo</param>
+        /// <returns></returns>
+        public static DateTime VysledkyCasPredchadzajucehoKola(int id, int kolo)
+        {
+            DateTime cas = new DateTime();
+            foreach (var item in vysledky)
+            {
+                if (item.ID == id && item.Kolo == kolo)
+                {
+                    cas = item.Teraz;
+                }
+            }
+           return cas;
+        }
+
 
         /// <summary>
         /// zobraz výsledky v debug outpute
