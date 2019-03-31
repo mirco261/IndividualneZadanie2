@@ -36,9 +36,6 @@
             this.lblTextInfo = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.novýZávodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uložToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.načítajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.konfiguráciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pretekáriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -47,11 +44,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.numCisloBezca = new System.Windows.Forms.NumericUpDown();
             this.lblTextCiExistujeZadaneID = new System.Windows.Forms.Label();
+            this.lblNavodNadpis = new System.Windows.Forms.Label();
+            this.lblNavodText = new System.Windows.Forms.Label();
             this.dataGridViewGrouper1 = new Subro.Controls.DataGridViewGrouper(this.components);
             this.groupingSource1 = new Subro.Controls.GroupingSource();
             this.dataGridViewGrouper2 = new Subro.Controls.DataGridViewGrouper(this.components);
-            this.lblNavodNadpis = new System.Windows.Forms.Label();
-            this.lblNavodText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -67,7 +64,7 @@
             this.btnZavodZahajit.Name = "btnZavodZahajit";
             this.btnZavodZahajit.Size = new System.Drawing.Size(163, 40);
             this.btnZavodZahajit.TabIndex = 1;
-            this.btnZavodZahajit.Text = "Zahájiť beh";
+            this.btnZavodZahajit.Text = "4. Zahájiť beh";
             this.btnZavodZahajit.UseVisualStyleBackColor = true;
             this.btnZavodZahajit.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -97,9 +94,9 @@
             this.lblTextInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblTextInfo.Location = new System.Drawing.Point(468, 55);
             this.lblTextInfo.Name = "lblTextInfo";
-            this.lblTextInfo.Size = new System.Drawing.Size(273, 17);
+            this.lblTextInfo.Size = new System.Drawing.Size(292, 17);
             this.lblTextInfo.TabIndex = 7;
-            this.lblTextInfo.Text = "Zadajte číslo bežca a stlačte ENTER";
+            this.lblTextInfo.Text = "5. Zadajte číslo bežca a stlačte ENTER";
             this.lblTextInfo.Visible = false;
             // 
             // dataGridView1
@@ -114,45 +111,23 @@
             // 
             // toolStripMenuItem1
             // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.novýZávodToolStripMenuItem,
-            this.uložToolStripMenuItem,
-            this.načítajToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(63, 24);
-            this.toolStripMenuItem1.Text = "MENU";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(100, 24);
+            this.toolStripMenuItem1.Text = "1. Databáza";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            // 
-            // novýZávodToolStripMenuItem
-            // 
-            this.novýZávodToolStripMenuItem.Name = "novýZávodToolStripMenuItem";
-            this.novýZávodToolStripMenuItem.Size = new System.Drawing.Size(162, 26);
-            this.novýZávodToolStripMenuItem.Text = "Nový závod";
-            // 
-            // uložToolStripMenuItem
-            // 
-            this.uložToolStripMenuItem.Name = "uložToolStripMenuItem";
-            this.uložToolStripMenuItem.Size = new System.Drawing.Size(162, 26);
-            this.uložToolStripMenuItem.Text = "Ulož";
-            // 
-            // načítajToolStripMenuItem
-            // 
-            this.načítajToolStripMenuItem.Name = "načítajToolStripMenuItem";
-            this.načítajToolStripMenuItem.Size = new System.Drawing.Size(162, 26);
-            this.načítajToolStripMenuItem.Text = "Načítaj";
             // 
             // konfiguráciaToolStripMenuItem
             // 
             this.konfiguráciaToolStripMenuItem.Name = "konfiguráciaToolStripMenuItem";
-            this.konfiguráciaToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
-            this.konfiguráciaToolStripMenuItem.Text = "Číselník bežcov";
+            this.konfiguráciaToolStripMenuItem.Size = new System.Drawing.Size(137, 24);
+            this.konfiguráciaToolStripMenuItem.Text = "2. Číselník bežcov";
             this.konfiguráciaToolStripMenuItem.Click += new System.EventHandler(this.konfiguráciaToolStripMenuItem_Click);
             // 
             // pretekáriToolStripMenuItem
             // 
             this.pretekáriToolStripMenuItem.Name = "pretekáriToolStripMenuItem";
-            this.pretekáriToolStripMenuItem.Size = new System.Drawing.Size(148, 24);
-            this.pretekáriToolStripMenuItem.Text = "Nastavenia preteku";
+            this.pretekáriToolStripMenuItem.Size = new System.Drawing.Size(163, 24);
+            this.pretekáriToolStripMenuItem.Text = "3. Nastavenia preteku";
             this.pretekáriToolStripMenuItem.Click += new System.EventHandler(this.pretekáriToolStripMenuItem_Click);
             // 
             // menuStrip1
@@ -238,20 +213,11 @@
             this.lblTextCiExistujeZadaneID.TabIndex = 8;
             this.lblTextCiExistujeZadaneID.Visible = false;
             // 
-            // dataGridViewGrouper1
-            // 
-            this.dataGridViewGrouper1.SortOrder = System.Windows.Forms.SortOrder.Descending;
-            // 
-            // dataGridViewGrouper2
-            // 
-            this.dataGridViewGrouper2.DataGridView = this.dataGridView1;
-            this.dataGridViewGrouper2.SortOrder = System.Windows.Forms.SortOrder.Descending;
-            // 
             // lblNavodNadpis
             // 
             this.lblNavodNadpis.AutoSize = true;
             this.lblNavodNadpis.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblNavodNadpis.Location = new System.Drawing.Point(1028, 34);
+            this.lblNavodNadpis.Location = new System.Drawing.Point(932, 35);
             this.lblNavodNadpis.Name = "lblNavodNadpis";
             this.lblNavodNadpis.Size = new System.Drawing.Size(267, 20);
             this.lblNavodNadpis.TabIndex = 11;
@@ -260,11 +226,20 @@
             // lblNavodText
             // 
             this.lblNavodText.AutoSize = true;
-            this.lblNavodText.Location = new System.Drawing.Point(1032, 58);
+            this.lblNavodText.Location = new System.Drawing.Point(933, 55);
             this.lblNavodText.Name = "lblNavodText";
-            this.lblNavodText.Size = new System.Drawing.Size(388, 102);
+            this.lblNavodText.Size = new System.Drawing.Size(553, 119);
             this.lblNavodText.TabIndex = 12;
             this.lblNavodText.Text = resources.GetString("lblNavodText.Text");
+            // 
+            // dataGridViewGrouper1
+            // 
+            this.dataGridViewGrouper1.SortOrder = System.Windows.Forms.SortOrder.Descending;
+            // 
+            // dataGridViewGrouper2
+            // 
+            this.dataGridViewGrouper2.DataGridView = this.dataGridView1;
+            this.dataGridViewGrouper2.SortOrder = System.Windows.Forms.SortOrder.Descending;
             // 
             // HlavnyProgram
             // 
@@ -307,9 +282,6 @@
         private System.Windows.Forms.Label lblTextInfo;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem novýZávodToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem uložToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem načítajToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem konfiguráciaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pretekáriToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;

@@ -12,9 +12,33 @@ namespace FinishLine.Core
     public static class FileTxt
     {
         //tu sa budu ukladať a načítavať nastavenia programu
-        static string pathBezciSettings = @"C:\Users\Public\Documents\BezciSettings.txt";
-        static string pathBezciZoznam = @"C:\Users\Public\Documents\BezciZoznam.txt";
         static string s;
+
+        //public static string pathBezciSettings { get; set; } = @"C:\Users\Public\Documents\BezciSettings.txt";
+        //public static string pathBezciZoznam { get; set; } = @"C:\Users\Public\Documents\BezciZoznam.txt";
+
+
+        public static string pathBezciSettings { get; set; } 
+        public static string pathBezciZoznam { get; set; } 
+
+        public static void UlozCestu(string path)
+        {
+            pathBezciSettings = Path.Combine(path, "BezciSettings.txt");
+            pathBezciZoznam = Path.Combine(path, "BezciZoznam.txt");
+        }
+
+        /// <summary>
+        /// pozrie sa, či je zadaná cesta k databáze, true == existuje
+        /// </summary>
+        /// <returns></returns>
+        public static bool ExistujePath()
+        {
+            if (pathBezciSettings == null || pathBezciSettings == null)
+            {
+                return false;
+            }
+            return true;
+        }
 
         /// <summary>
         /// Vráti true ak súbor existuje

@@ -18,10 +18,7 @@ namespace FinishLine
         {
             InitializeComponent();
             Staty.NacitajZoznamStatov();
-            if (FileTxt.SuborExistujeZoznam())
-            {
-                FileTxt.NacitajZoznamBezcov();
-            }
+
         }
 
         private void groupingSource1_GroupingChanged(object sender, EventArgs e)
@@ -31,19 +28,47 @@ namespace FinishLine
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.RootFolder = Environment.SpecialFolder.Desktop;
+            fbd.Description = "Nastavenia preteku a zoznam bežcov sa budú ukladať do vybranej zložky";
+            if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                MessageBox.Show($"Nastavenia preteku a zoznam bežcov sa budú ukladať do zložky a načítavať zo zložky\n{fbd.SelectedPath}");
+            }
+            string path = fbd.SelectedPath;
+            FinishLine.Core.FileTxt.UlozCestu(path);
 
+            //Načítaj zoznam bežcov z novej databazy
+            if (FileTxt.SuborExistujeZoznam())
+            {
+                FileTxt.NacitajZoznamBezcov();
+            }
         }
 
         private void konfiguráciaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CiselnikBezcov f = new CiselnikBezcov();
-            f.ShowDialog(this);
+            if (FileTxt.ExistujePath() == true)
+            {
+                CiselnikBezcov f = new CiselnikBezcov();
+                f.ShowDialog(this);
+            }
+            else
+            {
+                MessageBox.Show("Zadaj cestu k databáze");
+            }
+
         }
 
         private void pretekáriToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Nastavenia f = new Nastavenia();
-            f.ShowDialog(this);
+            if (FileTxt.ExistujePath() == true)
+            {
+                Nastavenia f = new Nastavenia(); f.ShowDialog(this);
+            }
+            else
+            {
+                MessageBox.Show("Zadaj cestu k databáze");
+            }
         }
 
         private void dataGridViewGrouper1_DisplayGroup(object sender, Subro.Controls.GroupDisplayEventArgs e)
@@ -61,13 +86,28 @@ namespace FinishLine
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            lblZaciatokZavodu.Text = DateTime.Now.ToString();
-            lblZavodZacal.Visible = true;
-            lblZaciatokZavodu.Visible = true;
-            numCisloBezca.Visible = true;
-            numCisloBezca.Text = "";     
-            lblTextInfo.Visible = true;
-            
+
+
+            //načítam zoznam bežcov
+            if (FileTxt.SuborExistujeZoznam())
+            {
+                FileTxt.NacitajZoznamBezcov();
+
+                //zobrazím všetky podporné lbl a num
+                lblZaciatokZavodu.Text = DateTime.Now.ToString();
+                lblZavodZacal.Visible = true;
+                lblZaciatokZavodu.Visible = true;
+                numCisloBezca.Visible = true;
+                numCisloBezca.Text = "";
+                lblTextInfo.Visible = true;
+            }
+            else
+            {
+                lblTextCiExistujeZadaneID.Text = "Nie je vytvorená databáza bežcov";
+                lblTextCiExistujeZadaneID.Visible = true;
+            }
+
+
         }
 
         private void txtBezec_TextChanged(object sender, EventArgs e)
@@ -176,6 +216,15 @@ namespace FinishLine
                 lblTextCiExistujeZadaneID.Visible = true;
                 lblTextCiExistujeZadaneID.Text = ($"ID s číslom {(int)numCisloBezca.Value} neexistuje");
             }
+        }
+
+        private void uložToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void načítajToolStripMenuItem_Click(object sender, EventArgs e)
+        {
         }
     }
 }

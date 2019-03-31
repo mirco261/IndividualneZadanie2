@@ -33,9 +33,9 @@ namespace FinishLine
         /// </summary>
         public void refreshDataGridView()
         {
-            dgwCiselnikBezcov.Refresh();
-            dgwCiselnikBezcov.Update();
-            InitializeComponent();
+            //dgwCiselnikBezcov.Refresh();
+            //dgwCiselnikBezcov.Update();
+            //InitializeComponent();
 
         }
 
@@ -116,8 +116,8 @@ namespace FinishLine
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            dgwCiselnikBezcov.Refresh();
-            dgwCiselnikBezcov.Update();
+            //dgwCiselnikBezcov.Refresh();
+            //dgwCiselnikBezcov.Update();
         }
     }
 }
