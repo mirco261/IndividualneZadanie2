@@ -28,21 +28,21 @@ namespace FinishLine
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-            fbd.RootFolder = Environment.SpecialFolder.Desktop;
-            fbd.Description = "Nastavenia preteku a zoznam bežcov sa budú ukladať do vybranej zložky";
-            if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                MessageBox.Show($"Nastavenia preteku a zoznam bežcov sa budú ukladať do zložky a načítavať zo zložky\n{fbd.SelectedPath}");
-            }
-            string path = fbd.SelectedPath;
-            FinishLine.Core.FileTxt.UlozCestu(path);
+        //    FolderBrowserDialog fbd = new FolderBrowserDialog();
+        //    fbd.RootFolder = Environment.SpecialFolder.Desktop;
+        //    fbd.Description = "Nastavenia preteku a zoznam bežcov sa budú ukladať do vybranej zložky";
+        //    if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+        //    {
+        //        MessageBox.Show($"Nastavenia preteku a zoznam bežcov sa budú ukladať do zložky a načítavať zo zložky\n{fbd.SelectedPath}");
+        //    }
+        //    string path = fbd.SelectedPath;
+        //    FinishLine.Core.FileTxt.UlozCestu(path);
 
-            //Načítaj zoznam bežcov z novej databazy
-            if (FileTxt.SuborExistujeZoznam())
-            {
-                FileTxt.NacitajZoznamBezcov();
-            }
+        //    //Načítaj zoznam bežcov z novej databazy
+        //    if (FileTxt.SuborExistujeZoznam())
+        //    {
+        //        FileTxt.NacitajZoznamBezcov();
+        //    }
         }
 
         private void konfiguráciaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -54,7 +54,7 @@ namespace FinishLine
             }
             else
             {
-                MessageBox.Show("Zadaj cestu k databáze");
+                MessageBox.Show("Zadaj cestu k existujúcej databáze alebo si vytvorte novú databázu.");
             }
 
         }
@@ -67,7 +67,7 @@ namespace FinishLine
             }
             else
             {
-                MessageBox.Show("Zadaj cestu k databáze");
+                MessageBox.Show("Zadaj cestu k existujúcej databáze alebo si vytvorte novú databázu.");
             }
         }
 
@@ -225,6 +225,44 @@ namespace FinishLine
 
         private void načítajToolStripMenuItem_Click(object sender, EventArgs e)
         {
+        }
+
+        private void vytvorNovúDbToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.RootFolder = Environment.SpecialFolder.Desktop;
+            fbd.Description = "Nastavenia preteku a zoznam bežcov sa budú ukladať do vybranej zložky";
+            if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                MessageBox.Show($"Nastavenia preteku a zoznam bežcov sa budú ukladať do zložky\n{fbd.SelectedPath}");
+            }
+            string path = fbd.SelectedPath;
+            FinishLine.Core.FileTxt.UlozCestu(path);
+
+            //Načítaj zoznam bežcov z novej databazy
+            if (FileTxt.SuborExistujeZoznam())
+            {
+                FileTxt.NacitajZoznamBezcov();
+            }
+        }
+
+        private void načítajExistujúcuDbToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.RootFolder = Environment.SpecialFolder.Desktop;
+            fbd.Description = "Nastavenia preteku a zoznam bežcov sa načítajú z vybranej zložky";
+            if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                MessageBox.Show($"Nastavenia preteku a zoznam bežcov sa načítali zo zálohy\n{fbd.SelectedPath}");
+            }
+            string path = fbd.SelectedPath;
+            FinishLine.Core.FileTxt.UlozCestu(path);
+
+            //Načítaj zoznam bežcov z novej databazy
+            if (FileTxt.SuborExistujeZoznam())
+            {
+                FileTxt.NacitajZoznamBezcov();
+            }
         }
     }
 }
