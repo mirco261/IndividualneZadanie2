@@ -33,10 +33,7 @@ namespace FinishLine
         /// </summary>
         public void refreshDataGridView()
         {
-            //dgwCiselnikBezcov.Refresh();
-            //dgwCiselnikBezcov.Update();
-            //InitializeComponent();
-
+            
         }
 
         private void dgwCiselnikBezcov_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -58,8 +55,10 @@ namespace FinishLine
         {
             BezecPridaj f = new BezecPridaj();
             f.ShowDialog(this);
-            dgwCiselnikBezcov.Refresh();
-            dgwCiselnikBezcov.Update();
+
+            //refreshnem zoznam bežcov
+            dgwCiselnikBezcov.DataSource = "";
+            dgwCiselnikBezcov.DataSource = BezecZoznam.zoznamBezcov.Values.ToList<Bezec>();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -93,6 +92,10 @@ namespace FinishLine
             int id = (int)(dgwCiselnikBezcov.Rows[x].Cells[0].Value);
             BezecZoznam.zoznamBezcovVymaz(id);
 
+            //refreshnem zoznam bežcov
+            dgwCiselnikBezcov.DataSource = "";
+            dgwCiselnikBezcov.DataSource = BezecZoznam.zoznamBezcov.Values.ToList<Bezec>();
+
 
         }
 
@@ -107,6 +110,10 @@ namespace FinishLine
             int id = (int)(dgwCiselnikBezcov.Rows[x].Cells[0].Value);
             BezecUprav f = new BezecUprav(id);
             f.ShowDialog(this);
+
+            //refreshnem zoznam bežcov
+            dgwCiselnikBezcov.DataSource = "";
+            dgwCiselnikBezcov.DataSource = BezecZoznam.zoznamBezcov.Values.ToList<Bezec>();
         }
 
         private void CiselnikBezcov_FormClosing(object sender, FormClosingEventArgs e)
