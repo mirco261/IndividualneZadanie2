@@ -35,11 +35,11 @@
             this.lblZaciatokZavodu = new System.Windows.Forms.Label();
             this.lblTextInfo = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuDatabaza = new System.Windows.Forms.ToolStripMenuItem();
             this.vytvorNovúDbToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.načítajExistujúcuDbToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.konfiguráciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pretekáriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuCiselnikBezcov = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuNastaveniaPreteku = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.Poradie = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,7 +56,7 @@
             this.groupingSource1 = new Subro.Controls.GroupingSource();
             this.dataGridViewGrouper2 = new Subro.Controls.DataGridViewGrouper(this.components);
             this.btnUlozStatistiky = new System.Windows.Forms.Button();
-            this.načítajExistujúceŠtatistikyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuNacitajExistujuceStatistiky = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -121,15 +121,15 @@
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // toolStripMenuItem1
+            // menuDatabaza
             // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuDatabaza.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.vytvorNovúDbToolStripMenuItem,
             this.načítajExistujúcuDbToolStripMenuItem});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(79, 20);
-            this.toolStripMenuItem1.Text = "1. Databáza";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            this.menuDatabaza.Name = "menuDatabaza";
+            this.menuDatabaza.Size = new System.Drawing.Size(79, 20);
+            this.menuDatabaza.Text = "1. Databáza";
+            this.menuDatabaza.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // vytvorNovúDbToolStripMenuItem
             // 
@@ -145,28 +145,28 @@
             this.načítajExistujúcuDbToolStripMenuItem.Text = "Načítaj existujúcu databázu";
             this.načítajExistujúcuDbToolStripMenuItem.Click += new System.EventHandler(this.nacitajExistujucuDbToolStripMenuItem_Click);
             // 
-            // konfiguráciaToolStripMenuItem
+            // menuCiselnikBezcov
             // 
-            this.konfiguráciaToolStripMenuItem.Name = "konfiguráciaToolStripMenuItem";
-            this.konfiguráciaToolStripMenuItem.Size = new System.Drawing.Size(112, 20);
-            this.konfiguráciaToolStripMenuItem.Text = "2. Číselník bežcov";
-            this.konfiguráciaToolStripMenuItem.Click += new System.EventHandler(this.konfiguráciaToolStripMenuItem_Click);
+            this.menuCiselnikBezcov.Name = "menuCiselnikBezcov";
+            this.menuCiselnikBezcov.Size = new System.Drawing.Size(112, 20);
+            this.menuCiselnikBezcov.Text = "2. Číselník bežcov";
+            this.menuCiselnikBezcov.Click += new System.EventHandler(this.konfiguráciaToolStripMenuItem_Click);
             // 
-            // pretekáriToolStripMenuItem
+            // menuNastaveniaPreteku
             // 
-            this.pretekáriToolStripMenuItem.Name = "pretekáriToolStripMenuItem";
-            this.pretekáriToolStripMenuItem.Size = new System.Drawing.Size(132, 20);
-            this.pretekáriToolStripMenuItem.Text = "3. Nastavenia preteku";
-            this.pretekáriToolStripMenuItem.Click += new System.EventHandler(this.pretekáriToolStripMenuItem_Click);
+            this.menuNastaveniaPreteku.Name = "menuNastaveniaPreteku";
+            this.menuNastaveniaPreteku.Size = new System.Drawing.Size(132, 20);
+            this.menuNastaveniaPreteku.Text = "3. Nastavenia preteku";
+            this.menuNastaveniaPreteku.Click += new System.EventHandler(this.pretekáriToolStripMenuItem_Click);
             // 
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.konfiguráciaToolStripMenuItem,
-            this.pretekáriToolStripMenuItem,
-            this.načítajExistujúceŠtatistikyToolStripMenuItem});
+            this.menuDatabaza,
+            this.menuCiselnikBezcov,
+            this.menuNastaveniaPreteku,
+            this.menuNacitajExistujuceStatistiky});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1218, 24);
@@ -326,12 +326,12 @@
             this.btnUlozStatistiky.Visible = false;
             this.btnUlozStatistiky.Click += new System.EventHandler(this.btnUlozStatistiky_Click);
             // 
-            // načítajExistujúceŠtatistikyToolStripMenuItem
+            // menuNacitajExistujuceStatistiky
             // 
-            this.načítajExistujúceŠtatistikyToolStripMenuItem.Name = "načítajExistujúceŠtatistikyToolStripMenuItem";
-            this.načítajExistujúceŠtatistikyToolStripMenuItem.Size = new System.Drawing.Size(172, 20);
-            this.načítajExistujúceŠtatistikyToolStripMenuItem.Text = "6. Načítaj existujúce štatistiky";
-            this.načítajExistujúceŠtatistikyToolStripMenuItem.Click += new System.EventHandler(this.načítajExistujúceŠtatistikyToolStripMenuItem_Click);
+            this.menuNacitajExistujuceStatistiky.Name = "menuNacitajExistujuceStatistiky";
+            this.menuNacitajExistujuceStatistiky.Size = new System.Drawing.Size(172, 20);
+            this.menuNacitajExistujuceStatistiky.Text = "6. Načítaj existujúce štatistiky";
+            this.menuNacitajExistujuceStatistiky.Click += new System.EventHandler(this.načítajExistujúceŠtatistikyToolStripMenuItem_Click);
             // 
             // HlavnyProgram
             // 
@@ -375,9 +375,9 @@
         private System.Windows.Forms.Label lblZaciatokZavodu;
         private System.Windows.Forms.Label lblTextInfo;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem konfiguráciaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pretekáriToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuDatabaza;
+        private System.Windows.Forms.ToolStripMenuItem menuCiselnikBezcov;
+        private System.Windows.Forms.ToolStripMenuItem menuNastaveniaPreteku;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private Subro.Controls.GroupingSource groupingSource1;
         private Subro.Controls.DataGridViewGrouper dataGridViewGrouper2;
@@ -396,7 +396,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CisloBezca;
         private System.Windows.Forms.DataGridViewTextBoxColumn PocetOdbehnutychKol;
         private System.Windows.Forms.Button btnUlozStatistiky;
-        private System.Windows.Forms.ToolStripMenuItem načítajExistujúceŠtatistikyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuNacitajExistujuceStatistiky;
     }
 }
 

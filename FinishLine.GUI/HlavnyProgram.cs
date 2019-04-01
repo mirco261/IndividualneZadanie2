@@ -78,7 +78,11 @@ namespace FinishLine
             BezecVysledkyZoznam.vysledky.Clear();
             dataGridView1.DataSource = "";
             dataGridView3.DataSource = "";
+
+            //zakažem mu robiť čokolvek iné
             lblTextInfo.Visible = false;
+
+
 
 
             //načítam zoznam bežcov
@@ -95,7 +99,13 @@ namespace FinishLine
                     lblZaciatokZavodu.Visible = true;
                     numCisloBezca.Visible = true;
                     numCisloBezca.Text = "";
-                    lblTextInfo.Visible = true;
+                    lblTextInfo.Visible = false;
+
+                    //a zakažem mu všetko nepotrebné
+                    menuNastaveniaPreteku.Enabled = false;
+                    menuDatabaza.Enabled = false;
+                    menuCiselnikBezcov.Enabled = false;
+                    menuNacitajExistujuceStatistiky.Enabled = false;
                 }
                 else
                 {
@@ -235,8 +245,16 @@ namespace FinishLine
                 lblTextCiExistujeZadaneID.Visible = true;
                 numCisloBezca.Enabled = false;
                 MessageBox.Show("Bežecké preteky už poznajú všetkých víťazov - večná im sláva");
+
+                //skrytie všetkého čo užívateľ nepotrebuje vidieť a ja mu nechcem ukázať
                 btnUlozStatistiky.Visible = true;
                 btnZavodZahajit.Visible = false;
+                menuNastaveniaPreteku.Enabled = false;
+                menuDatabaza.Enabled = false;
+                menuCiselnikBezcov.Enabled = false;
+                menuNacitajExistujuceStatistiky.Enabled = false;
+                lblTextCiExistujeZadaneID.Text = "Pre spustenie nového behu reštartnite program";
+                lblTextCiExistujeZadaneID.Visible = true;
             }
             //vymažem znaky v numUpDown
             numCisloBezca.Text = "";
@@ -353,17 +371,19 @@ namespace FinishLine
                 dataGridView1.Columns[5].Visible = false;
                 dataGridView3.Columns[3].Visible = false;
                 dataGridView3.Columns[2].Visible = false;
+
+                //skrytie všetkého čo užívateľ nepotrebuje vidieť a ja mu nechcem ukázať
+                btnZavodZahajit.Visible = false;
+                menuNastaveniaPreteku.Enabled = false;
+                menuDatabaza.Enabled = false;
+                menuCiselnikBezcov.Enabled = false;
+                lblTextCiExistujeZadaneID.Text = "Pre spustenie nového behu reštartnite program";
+                lblTextCiExistujeZadaneID.Visible = true;
             }
             else
             {
                 MessageBox.Show("V zadanej zložke sa nenachádzajú potrebné súbory pre zobrazenie štatistík.");
             }
-
-            
-
-
-
-
         }
 
         private void lblNavodNadpis_Click(object sender, EventArgs e)
