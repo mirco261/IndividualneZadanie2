@@ -9,6 +9,8 @@ namespace FinishLine.Core
 {
     public class BezecVysledkyZoznam
     {
+        public static int VitazMiesto { get; set; } = 1;
+
         //vytvorenie Listu, kde si ukladám výsledky bežca
         public static List<BezecVysledky> vysledky = new List<BezecVysledky>();
 
@@ -68,18 +70,59 @@ namespace FinishLine.Core
             }
         }
 
-        public static List<BezecVysledky> vysledkyTop(int pocetKol, int pocetPoradi)
+        ///List, kde si ukladám poradie a vyhodnotenie bežca
+        public static List<BezecVysledky> poradie = new List<BezecVysledky>();
+
+
+
+        /// <summary>
+        /// Pridám 
+        /// </summary>
+        /// <param name="bezec1"></param>
+        /// <param name="pocetKol"></param>
+        /// <param name="pocetPoradi"></param>
+        /// <returns></returns>
+        public static List<BezecVysledky> PoradiePridaj(BezecVysledky bezec1 ,int pocetKol, int pocetPoradi)
         {
-            List<BezecVysledky> newList = new List<BezecVysledky>();
-            foreach (var item in vysledky)
-            {
-                if (item.Kolo == pocetKol && newList.Count <= pocetPoradi-1)
+            //List<BezecVysledky> poradie = new List<BezecVysledky>();
+            //foreach (var item in vysledky)
+            //{
+                //udelím miesto tomu, kto sa mi bude zhodovať v IF
+                if (bezec1.Kolo == pocetKol && VitazMiesto <= pocetPoradi) 
                 {
-                    newList.Add(item);
+                    bezec1.Poradie = VitazMiesto;
+                    poradie.Add(bezec1);
+                    VitazMiesto++;
                 }
-            }
-            return newList;
+            //}
+            return poradie;
         }
 
+        /// <summary>
+        /// zistujem, či dané ID už je víťaz, vráti true ak už je víťaz
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static bool VysledkyJeUzVitaz(int id)
+        {
+            foreach (var item in poradie)
+            {
+                if (item.ID == id)
+                {
+                    return true;
+                }
+               // return false;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Vypíšem si list víťazov
+        /// </summary>
+        /// <returns></returns>
+        public static List<BezecVysledky> PoradieVitazov()
+        {
+            return poradie;
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace FinishLine
         {
             InitializeComponent();
             Staty.NacitajZoznamStatov();
-            if (FileTxt.SuborExistujeZoznam())
+            if (FileTxt.SuborExistujeZoznamBezcov())
             {
                 FileTxt.NacitajZoznamBezcov();
             }
@@ -123,8 +123,7 @@ namespace FinishLine
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            //dgwCiselnikBezcov.Refresh();
-            //dgwCiselnikBezcov.Update();
+
         }
     }
 }

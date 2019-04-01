@@ -26,3 +26,21 @@ namespace FinishLine.Core
 
     }
 }
+
+//zistím, či existuje ID v zozname bežcov
+//if (BezecZoznam.ZistiCiIdExistuje((int) numCisloBezca.Value))
+//{
+//    //ak aj existuje, zistím, či už náhodou nie je víťaz
+//    lblTextCiExistujeZadaneID.Visible = false;
+//    if (BezecVysledkyZoznam.VysledkyJeUzVitaz((int) numCisloBezca.Value))
+//    {
+//        lblTextCiExistujeZadaneID.Visible = true;
+//        lblTextCiExistujeZadaneID.Text = ($"Bežec s číslom {(int)numCisloBezca.Value} je už víťaz");
+//    }
+
+//}
+//else
+//{
+//    lblTextCiExistujeZadaneID.Visible = true;
+//    lblTextCiExistujeZadaneID.Text = ($"Bežec s číslom {(int)numCisloBezca.Value} neexistuje");
+//}

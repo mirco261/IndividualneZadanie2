@@ -101,5 +101,10 @@ namespace FinishLine.Core
             }
 
         }
+
+        private void cmbKrajiny_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

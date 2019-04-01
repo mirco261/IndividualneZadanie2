@@ -12,7 +12,7 @@ namespace FinishLine.Core
     public static class FileTxt
     {
         //tu sa budu ukladať a načítavať nastavenia programu
-        static string s;
+        //static string s;
 
         //public static string pathBezciSettings { get; set; } = @"C:\Users\Public\Documents\BezciSettings.txt";
         //public static string pathBezciZoznam { get; set; } = @"C:\Users\Public\Documents\BezciZoznam.txt";
@@ -61,9 +61,25 @@ namespace FinishLine.Core
         /// Vráti true ak súbor existuje
         /// </summary>
         /// <returns></returns>
-        public static bool SuborExistujeZoznam()
+        public static bool SuborExistujeZoznamBezcov()
         {
             if (File.Exists(pathBezciZoznam))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Vráti true ak súbor existuje
+        /// </summary>
+        /// <returns></returns>
+        public static bool SuborExistujeNastaveniaBezcov()
+        {
+            if (File.Exists(pathBezciSettings))
             {
                 return true;
             }

@@ -14,6 +14,7 @@ namespace FinishLine.Core
         public DateTime Teraz { get; set; }
         public TimeSpan DlzkaKola { get; set; }
         public int Kolo { get; set; }
+        public int Poradie { get; set; }
 
 
         public BezecVysledky(int iD, string meno, DateTime teraz, TimeSpan dlzkaKola, int kolo)
@@ -23,6 +24,16 @@ namespace FinishLine.Core
             Teraz = teraz;
             DlzkaKola = dlzkaKola;
             Kolo = kolo;
+        }
+
+        public BezecVysledky(int iD, string meno, DateTime teraz, TimeSpan dlzkaKola, int kolo, int poradie)
+        {
+            ID = iD;
+            Meno = meno;
+            Teraz = teraz;
+            DlzkaKola = dlzkaKola;
+            Kolo = kolo;
+            Poradie = poradie;
         }
     }
 }

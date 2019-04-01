@@ -28,21 +28,7 @@ namespace FinishLine
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-        //    FolderBrowserDialog fbd = new FolderBrowserDialog();
-        //    fbd.RootFolder = Environment.SpecialFolder.Desktop;
-        //    fbd.Description = "Nastavenia preteku a zoznam bežcov sa budú ukladať do vybranej zložky";
-        //    if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-        //    {
-        //        MessageBox.Show($"Nastavenia preteku a zoznam bežcov sa budú ukladať do zložky a načítavať zo zložky\n{fbd.SelectedPath}");
-        //    }
-        //    string path = fbd.SelectedPath;
-        //    FinishLine.Core.FileTxt.UlozCestu(path);
 
-        //    //Načítaj zoznam bežcov z novej databazy
-        //    if (FileTxt.SuborExistujeZoznam())
-        //    {
-        //        FileTxt.NacitajZoznamBezcov();
-        //    }
         }
 
         private void konfiguráciaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -86,20 +72,36 @@ namespace FinishLine
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
+            //zmažem listy poradí a vysledkovej tabule a gridy kde sa naplnajú
+            BezecVysledkyZoznam.poradie.Clear();
+            BezecVysledkyZoznam.vysledky.Clear();
+            dataGridView1.DataSource = "";
+            dataGridView3.DataSource = "";
+            lblTextInfo.Visible = false;
 
 
             //načítam zoznam bežcov
-            if (FileTxt.SuborExistujeZoznam())
+            if (FileTxt.SuborExistujeZoznamBezcov())
             {
                 FileTxt.NacitajZoznamBezcov();
 
-                //zobrazím všetky podporné lbl a num
-                lblZaciatokZavodu.Text = DateTime.Now.ToString();
-                lblZavodZacal.Visible = true;
-                lblZaciatokZavodu.Visible = true;
-                numCisloBezca.Visible = true;
-                numCisloBezca.Text = "";
-                lblTextInfo.Visible = true;
+                //overím či existuje súbor nastavení behu
+                if (FileTxt.SuborExistujeNastaveniaBezcov())
+                {
+                    //zobrazím všetky podporné lbl a num
+                    lblZaciatokZavodu.Text = DateTime.Now.ToString();
+                    lblZavodZacal.Visible = true;
+                    lblZaciatokZavodu.Visible = true;
+                    numCisloBezca.Visible = true;
+                    numCisloBezca.Text = "";
+                    lblTextInfo.Visible = true;
+                }
+                else
+                {
+                    lblTextCiExistujeZadaneID.Text = "Nastavte si nastavenia preteku";
+                    lblTextCiExistujeZadaneID.Visible = true;
+                }
+                
             }
             else
             {
@@ -146,6 +148,16 @@ namespace FinishLine
                     //zisti, či dané ID existuje
                     if (BezecZoznam.ZistiCiIdExistuje((int)numCisloBezca.Value))
                     {
+                        //zisti, či už náhodu nie je bežec víťaz
+                        if (BezecVysledkyZoznam.VysledkyJeUzVitaz((int)numCisloBezca.Value))
+                        {
+                            lblTextCiExistujeZadaneID.Visible = true;
+                            lblTextCiExistujeZadaneID.Text = ($"Bežec s číslom {(int)numCisloBezca.Value} je už víťaz");
+                        }
+                        //inak ide dalej
+                        else
+                        { 
+
                         lblTextCiExistujeZadaneID.Visible = false;
 
                         //vytiahnem si ID z numUpDown
@@ -177,20 +189,37 @@ namespace FinishLine
                         //pridám mu 1 kolo a zapíšem výsledky
                         BezecVysledky bezec1 = new BezecVysledky(id, meno, teraz, dlzka, kolo);
 
+                        //pridam bežca do výsledkov vlavo
                         BezecVysledkyZoznam.VysledkyPridaj(bezec1);
+
+                        //priradím bežca do výsledkovej tabule (ak vyhovuje počtu kôl a je ešte volné poradie)
+                        BezecVysledkyZoznam.PoradiePridaj(bezec1, FileTxt.NacitajPocetKol(), FileTxt.NacitajPocetPoradi());
+
 
                         //zobraz v outpute vysledky
                         BezecVysledkyZoznam.VysledkyZobraz();
 
+                        //vypisovanie Priebežných výsledkov v datagride
                         dataGridView1.DataSource = BezecVysledkyZoznam.vysledky.ToList<BezecVysledky>();
+                        dataGridView1.Columns[2].DefaultCellStyle.Format = "HH:mm:ss:f";
+                        dataGridView1.Columns[0].HeaderText = "Číslo bežca";
+                        dataGridView1.Columns[2].HeaderText = "Čas zápisu";
+                        dataGridView1.Columns[3].HeaderText = "Dĺžka kola";
+                        dataGridView1.Columns[4].HeaderText = "Číslo kola";
 
-                        dataGridView3.DataSource = BezecVysledkyZoznam.vysledkyTop(FileTxt.NacitajPocetKol(), FileTxt.NacitajPocetPoradi());
 
+                        //vypisovanie Poradia víťazov v datagride
+
+                        dataGridView3.DataSource = BezecVysledkyZoznam.poradie.ToList<BezecVysledky>();
+                        dataGridView3.Columns[2].HeaderText = "Čas zápisu";
+
+                        }
                     }
                     else
                     {
                         lblTextCiExistujeZadaneID.Visible = true;
                         lblTextCiExistujeZadaneID.Text = ($"ID s číslom {(int)numCisloBezca.Value} neexistuje");
+
                     }
 
                 }
@@ -206,16 +235,23 @@ namespace FinishLine
 
         private void numCisloBezca_ValueChanged(object sender, EventArgs e)
         {
-            if (BezecZoznam.ZistiCiIdExistuje((int)numCisloBezca.Value))
-            {
-                lblTextCiExistujeZadaneID.Visible = false;
+            //zistím, či existuje ID v zozname bežcov
+            //if (BezecZoznam.ZistiCiIdExistuje((int)numCisloBezca.Value))
+            //{
+            //    //ak aj existuje, zistím, či už náhodou nie je víťaz
+            //    lblTextCiExistujeZadaneID.Visible = false;
+            //    if (BezecVysledkyZoznam.VysledkyJeUzVitaz((int)numCisloBezca.Value))
+            //    {
+            //        lblTextCiExistujeZadaneID.Visible = true;
+            //        lblTextCiExistujeZadaneID.Text = ($"Bežec s číslom {(int)numCisloBezca.Value} je už víťaz");
+            //    }
 
-            }
-            else
-            {
-                lblTextCiExistujeZadaneID.Visible = true;
-                lblTextCiExistujeZadaneID.Text = ($"ID s číslom {(int)numCisloBezca.Value} neexistuje");
-            }
+            //}
+            //else
+            //{
+            //    lblTextCiExistujeZadaneID.Visible = true;
+            //    lblTextCiExistujeZadaneID.Text = ($"Bežec s číslom {(int)numCisloBezca.Value} neexistuje");
+            //}
         }
 
         private void uložToolStripMenuItem_Click(object sender, EventArgs e)
@@ -240,7 +276,7 @@ namespace FinishLine
             FinishLine.Core.FileTxt.UlozCestu(path);
 
             //Načítaj zoznam bežcov z novej databazy
-            if (FileTxt.SuborExistujeZoznam())
+            if (FileTxt.SuborExistujeZoznamBezcov())
             {
                 FileTxt.NacitajZoznamBezcov();
             }
@@ -259,10 +295,15 @@ namespace FinishLine
             FinishLine.Core.FileTxt.UlozCestu(path);
 
             //Načítaj zoznam bežcov z novej databazy
-            if (FileTxt.SuborExistujeZoznam())
+            if (FileTxt.SuborExistujeZoznamBezcov())
             {
                 FileTxt.NacitajZoznamBezcov();
             }
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

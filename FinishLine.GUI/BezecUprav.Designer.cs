@@ -51,18 +51,18 @@
             // lblID
             // 
             this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(123, 40);
+            this.lblID.Location = new System.Drawing.Point(92, 32);
+            this.lblID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(0, 17);
+            this.lblID.Size = new System.Drawing.Size(0, 13);
             this.lblID.TabIndex = 27;
             // 
             // btnUlozAzatvor
             // 
             this.btnUlozAzatvor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnUlozAzatvor.Location = new System.Drawing.Point(13, 373);
-            this.btnUlozAzatvor.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUlozAzatvor.Location = new System.Drawing.Point(10, 303);
             this.btnUlozAzatvor.Name = "btnUlozAzatvor";
-            this.btnUlozAzatvor.Size = new System.Drawing.Size(196, 37);
+            this.btnUlozAzatvor.Size = new System.Drawing.Size(147, 30);
             this.btnUlozAzatvor.TabIndex = 26;
             this.btnUlozAzatvor.Text = "Ulož a zatvor";
             this.btnUlozAzatvor.UseVisualStyleBackColor = true;
@@ -70,8 +70,7 @@
             // 
             // numID
             // 
-            this.numID.Location = new System.Drawing.Point(13, 35);
-            this.numID.Margin = new System.Windows.Forms.Padding(4);
+            this.numID.Location = new System.Drawing.Point(10, 28);
             this.numID.Maximum = new decimal(new int[] {
             999,
             0,
@@ -83,7 +82,7 @@
             0,
             0});
             this.numID.Name = "numID";
-            this.numID.Size = new System.Drawing.Size(103, 22);
+            this.numID.Size = new System.Drawing.Size(77, 20);
             this.numID.TabIndex = 25;
             this.numID.Value = new decimal(new int[] {
             1,
@@ -96,20 +95,18 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(13, 12);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(10, 10);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(26, 19);
+            this.label5.Size = new System.Drawing.Size(21, 16);
             this.label5.TabIndex = 24;
             this.label5.Text = "ID";
             // 
             // btnStorno
             // 
             this.btnStorno.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnStorno.Location = new System.Drawing.Point(10, 418);
-            this.btnStorno.Margin = new System.Windows.Forms.Padding(4);
+            this.btnStorno.Location = new System.Drawing.Point(8, 340);
             this.btnStorno.Name = "btnStorno";
-            this.btnStorno.Size = new System.Drawing.Size(199, 37);
+            this.btnStorno.Size = new System.Drawing.Size(149, 30);
             this.btnStorno.TabIndex = 23;
             this.btnStorno.Text = "Storno";
             this.btnStorno.UseVisualStyleBackColor = true;
@@ -119,21 +116,18 @@
             // 
             this.groupBox1.Controls.Add(this.rdbZena);
             this.groupBox1.Controls.Add(this.rdbMuz);
-            this.groupBox1.Location = new System.Drawing.Point(17, 287);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Location = new System.Drawing.Point(13, 233);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(192, 78);
+            this.groupBox1.Size = new System.Drawing.Size(144, 63);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             // 
             // rdbZena
             // 
             this.rdbZena.AutoSize = true;
-            this.rdbZena.Location = new System.Drawing.Point(8, 42);
-            this.rdbZena.Margin = new System.Windows.Forms.Padding(4);
+            this.rdbZena.Location = new System.Drawing.Point(6, 34);
             this.rdbZena.Name = "rdbZena";
-            this.rdbZena.Size = new System.Drawing.Size(62, 21);
+            this.rdbZena.Size = new System.Drawing.Size(50, 17);
             this.rdbZena.TabIndex = 1;
             this.rdbZena.TabStop = true;
             this.rdbZena.Text = "Žena";
@@ -142,10 +136,9 @@
             // rdbMuz
             // 
             this.rdbMuz.AutoSize = true;
-            this.rdbMuz.Location = new System.Drawing.Point(9, 14);
-            this.rdbMuz.Margin = new System.Windows.Forms.Padding(4);
+            this.rdbMuz.Location = new System.Drawing.Point(7, 11);
             this.rdbMuz.Name = "rdbMuz";
-            this.rdbMuz.Size = new System.Drawing.Size(55, 21);
+            this.rdbMuz.Size = new System.Drawing.Size(45, 17);
             this.rdbMuz.TabIndex = 0;
             this.rdbMuz.TabStop = true;
             this.rdbMuz.Text = "Muž";
@@ -156,17 +149,16 @@
             this.cmbKrajiny.DisplayMember = "KrajinaKod";
             this.cmbKrajiny.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbKrajiny.FormattingEnabled = true;
-            this.cmbKrajiny.Location = new System.Drawing.Point(13, 223);
-            this.cmbKrajiny.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbKrajiny.Location = new System.Drawing.Point(10, 181);
             this.cmbKrajiny.Name = "cmbKrajiny";
-            this.cmbKrajiny.Size = new System.Drawing.Size(201, 24);
+            this.cmbKrajiny.Size = new System.Drawing.Size(152, 21);
             this.cmbKrajiny.TabIndex = 20;
             this.cmbKrajiny.ValueMember = "KrajinaKod";
+            this.cmbKrajiny.SelectedIndexChanged += new System.EventHandler(this.cmbKrajiny_SelectedIndexChanged);
             // 
             // numVek
             // 
-            this.numVek.Location = new System.Drawing.Point(13, 160);
-            this.numVek.Margin = new System.Windows.Forms.Padding(4);
+            this.numVek.Location = new System.Drawing.Point(10, 130);
             this.numVek.Maximum = new decimal(new int[] {
             120,
             0,
@@ -178,7 +170,7 @@
             0,
             0});
             this.numVek.Name = "numVek";
-            this.numVek.Size = new System.Drawing.Size(103, 22);
+            this.numVek.Size = new System.Drawing.Size(77, 20);
             this.numVek.TabIndex = 19;
             this.numVek.Value = new decimal(new int[] {
             1,
@@ -188,20 +180,18 @@
             // 
             // txtMenoBezca
             // 
-            this.txtMenoBezca.Location = new System.Drawing.Point(13, 96);
-            this.txtMenoBezca.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMenoBezca.Location = new System.Drawing.Point(10, 78);
             this.txtMenoBezca.Name = "txtMenoBezca";
-            this.txtMenoBezca.Size = new System.Drawing.Size(201, 22);
+            this.txtMenoBezca.Size = new System.Drawing.Size(152, 20);
             this.txtMenoBezca.TabIndex = 18;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(13, 263);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(10, 214);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 19);
+            this.label4.Size = new System.Drawing.Size(62, 16);
             this.label4.TabIndex = 17;
             this.label4.Text = "Pohlavie";
             // 
@@ -209,10 +199,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(13, 199);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(10, 162);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 19);
+            this.label3.Size = new System.Drawing.Size(52, 16);
             this.label3.TabIndex = 16;
             this.label3.Text = "Krajina";
             // 
@@ -220,10 +209,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(13, 136);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(10, 110);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 19);
+            this.label2.Size = new System.Drawing.Size(31, 16);
             this.label2.TabIndex = 15;
             this.label2.Text = "Vek";
             // 
@@ -231,18 +219,17 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(13, 72);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(10, 58);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 19);
+            this.label1.Size = new System.Drawing.Size(84, 16);
             this.label1.TabIndex = 14;
             this.label1.Text = "Meno bežca";
             // 
             // BezecUprav
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(239, 473);
+            this.ClientSize = new System.Drawing.Size(181, 391);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.btnUlozAzatvor);
             this.Controls.Add(this.numID);
@@ -256,8 +243,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.MaximumSize = new System.Drawing.Size(257, 520);
-            this.MinimumSize = new System.Drawing.Size(257, 520);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximumSize = new System.Drawing.Size(197, 430);
+            this.MinimumSize = new System.Drawing.Size(197, 430);
             this.Name = "BezecUprav";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "BezecUprav";
