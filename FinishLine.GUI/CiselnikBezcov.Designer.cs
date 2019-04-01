@@ -30,6 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgwCiselnikBezcov = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MenoBezca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Vek = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Krajina = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pohlavie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bezecZoznamBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.btnPridajBezca = new System.Windows.Forms.Button();
             this.btnUpravBezca = new System.Windows.Forms.Button();
@@ -42,11 +47,6 @@
             this.bezecZoznamBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bezecBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MenoBezca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Vek = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Krajina = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pohlavie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgwCiselnikBezcov)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bezecZoznamBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statBindingSource2)).BeginInit();
@@ -79,6 +79,41 @@
             this.dgwCiselnikBezcov.TabIndex = 0;
             this.dgwCiselnikBezcov.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwCiselnikBezcov_CellContentClick);
             this.dgwCiselnikBezcov.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgwCiselnikBezcov_CellFormatting);
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // MenoBezca
+            // 
+            this.MenoBezca.DataPropertyName = "Meno";
+            this.MenoBezca.HeaderText = "Meno";
+            this.MenoBezca.Name = "MenoBezca";
+            this.MenoBezca.ReadOnly = true;
+            // 
+            // Vek
+            // 
+            this.Vek.DataPropertyName = "Vek";
+            this.Vek.HeaderText = "Vek";
+            this.Vek.Name = "Vek";
+            this.Vek.ReadOnly = true;
+            // 
+            // Krajina
+            // 
+            this.Krajina.DataPropertyName = "Krajina";
+            this.Krajina.HeaderText = "Krajina";
+            this.Krajina.Name = "Krajina";
+            this.Krajina.ReadOnly = true;
+            // 
+            // Pohlavie
+            // 
+            this.Pohlavie.DataPropertyName = "Pohlavie";
+            this.Pohlavie.HeaderText = "Pohlavie";
+            this.Pohlavie.Name = "Pohlavie";
+            this.Pohlavie.ReadOnly = true;
             // 
             // bezecZoznamBindingSource1
             // 
@@ -152,44 +187,9 @@
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(123, 76);
             this.btnRefresh.TabIndex = 4;
-            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.Text = "Zatvor";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // MenoBezca
-            // 
-            this.MenoBezca.DataPropertyName = "Meno";
-            this.MenoBezca.HeaderText = "Meno";
-            this.MenoBezca.Name = "MenoBezca";
-            this.MenoBezca.ReadOnly = true;
-            // 
-            // Vek
-            // 
-            this.Vek.DataPropertyName = "Vek";
-            this.Vek.HeaderText = "Vek";
-            this.Vek.Name = "Vek";
-            this.Vek.ReadOnly = true;
-            // 
-            // Krajina
-            // 
-            this.Krajina.DataPropertyName = "Krajina";
-            this.Krajina.HeaderText = "Krajina";
-            this.Krajina.Name = "Krajina";
-            this.Krajina.ReadOnly = true;
-            // 
-            // Pohlavie
-            // 
-            this.Pohlavie.DataPropertyName = "Pohlavie";
-            this.Pohlavie.HeaderText = "Pohlavie";
-            this.Pohlavie.Name = "Pohlavie";
-            this.Pohlavie.ReadOnly = true;
             // 
             // CiselnikBezcov
             // 

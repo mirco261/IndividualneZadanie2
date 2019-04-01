@@ -105,9 +105,9 @@ namespace FinishLine.Core
         /// <returns></returns>
         public static bool VysledkyJeUzVitaz(int id)
         {
-            foreach (var item in poradie)
+            foreach (var zaznam in poradie)
             {
-                if (item.ID == id)
+                if (zaznam.ID == id)
                 {
                     return true;
                 }
@@ -122,6 +122,16 @@ namespace FinishLine.Core
         public static List<BezecVysledky> PoradieVitazov()
         {
             return poradie;
+        }
+
+        /// <summary>
+        /// Vráti počet zapísaných víťazov do int
+        /// </summary>
+        /// <returns></returns>
+        public static int VratPocetVitazov()
+        {
+            return poradie.Count();
+                        
         }
     }
 }

@@ -136,96 +136,107 @@ namespace FinishLine
         /// <param name="e"></param>
         private void numCisloBezca_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)13)
+            //ak sa dosiahne počet poradí, tak zdisablujem možnosť zadávať víťazov
+            if (FileTxt.NacitajPocetPoradi() != BezecVysledkyZoznam.VratPocetVitazov())
             {
-                if (numCisloBezca.Text == "")
+                if (e.KeyChar == (char)13)
                 {
-                    lblTextCiExistujeZadaneID.Text = ("Zadajte ID bežca");
-                    lblTextCiExistujeZadaneID.Visible = true;
-                }
-                else
-                {
-                    //zisti, či dané ID existuje
-                    if (BezecZoznam.ZistiCiIdExistuje((int)numCisloBezca.Value))
+                
+
+
+                    if (numCisloBezca.Text == "")
                     {
-                        //zisti, či už náhodu už je bežec víťaz
-                        if (BezecVysledkyZoznam.VysledkyJeUzVitaz((int)numCisloBezca.Value))
-                        {
-                            lblTextCiExistujeZadaneID.Visible = true;
-                            lblTextCiExistujeZadaneID.Text = ($"Bežec s číslom {(int)numCisloBezca.Value} je už víťaz");
-                        }
-                        //inak ide dalej
-                        else
-                        {
-                            lblTextCiExistujeZadaneID.Visible = false;
-
-                            //vytiahnem si ID z numUpDown
-                            int id = (int)numCisloBezca.Value;
-                            string meno = BezecZoznam.BezecDajMeno(id);
-                            DateTime teraz = DateTime.Now;
-                            TimeSpan dlzka;
-
-                            //zistím si koľko kôl už má bežec odbehnuté
-                            int kolo = BezecVysledkyZoznam.VysledkyHladajKoloBezca(id);
-
-                            //zistím si posledný čas kola
-                            DateTime predchadzajuceKolo = BezecVysledkyZoznam.VysledkyCasPredchadzajucehoKola(id, kolo);
-
-                            //ak je toto prvé kolo, dopln čas začiatku závodu
-                            if (predchadzajuceKolo == new DateTime())  //ak je prazdne
-                            {
-                                dlzka = teraz - DateTime.Parse(lblZaciatokZavodu.Text.ToString());
-                            }
-                            else
-                            {
-                                dlzka = teraz - predchadzajuceKolo;
-                            }
-
-                            //pridám mu kolo
-                            kolo++;
-
-                            //pridám mu 1 kolo a zapíšem výsledky
-                            BezecVysledky bezec1 = new BezecVysledky(id, meno, teraz, dlzka, kolo);
-
-                            //pridam bežca do výsledkov vlavo
-                            BezecVysledkyZoznam.VysledkyPridaj(bezec1);
-
-                            //priradím bežca do výsledkovej tabule (ak vyhovuje počtu kôl a je ešte volné poradie)
-                            BezecVysledkyZoznam.PoradiePridaj(bezec1, FileTxt.NacitajPocetKol(), FileTxt.NacitajPocetPoradi());
-                            
-                            //zobraz v outpute vysledky
-                            BezecVysledkyZoznam.VysledkyZobraz();
-
-                            //vypisovanie Priebežných výsledkov v datagride
-                            dataGridView1.DataSource = BezecVysledkyZoznam.vysledky;
-                            dataGridView1.Columns[2].DefaultCellStyle.Format = "HH:mm:ss:ff";
-                            dataGridView1.Columns[0].HeaderText = "Číslo bežca";
-                            dataGridView1.Columns[2].HeaderText = "Čas zápisu";
-                            dataGridView1.Columns[3].HeaderText = "Dĺžka kola";
-                            dataGridView1.Columns[4].HeaderText = "Číslo kola";
-
-                            dataGridViewGrouper1.SetGroupOn(this.dataGridView1.Columns["Kolo"]);
-
-
-                            //vypisovanie Poradia víťazov v datagride
-
-                            dataGridView3.DataSource = BezecVysledkyZoznam.poradie.ToList<BezecVysledky>();
-                            dataGridView3.Columns[2].HeaderText = "Čas zápisu";
-
-
-                        }
+                        lblTextCiExistujeZadaneID.Text = ("Zadajte ID bežca");
+                        lblTextCiExistujeZadaneID.Visible = true;
                     }
                     else
                     {
-                        lblTextCiExistujeZadaneID.Visible = true;
-                        lblTextCiExistujeZadaneID.Text = ($"ID s číslom {(int)numCisloBezca.Value} neexistuje");
+                        //zisti, či dané ID existuje
+                        if (BezecZoznam.ZistiCiIdExistuje((int)numCisloBezca.Value))
+                        {
+                            //zisti, či už náhodu už je bežec víťaz
+                            if (BezecVysledkyZoznam.VysledkyJeUzVitaz((int)numCisloBezca.Value))
+                            {
+                                lblTextCiExistujeZadaneID.Visible = true;
+                                lblTextCiExistujeZadaneID.Text = ($"Bežec s číslom {(int)numCisloBezca.Value} je už víťaz");
+                            }
+                            //inak ide dalej
+                            else
+                            {
+                                lblTextCiExistujeZadaneID.Visible = false;
 
+                                //vytiahnem si ID z numUpDown
+                                int id = (int)numCisloBezca.Value;
+                                string meno = BezecZoznam.BezecDajMeno(id);
+                                DateTime teraz = DateTime.Now;
+                                TimeSpan dlzka;
+
+                                //zistím si koľko kôl už má bežec odbehnuté
+                                int kolo = BezecVysledkyZoznam.VysledkyHladajKoloBezca(id);
+
+                                //zistím si posledný čas kola
+                                DateTime predchadzajuceKolo = BezecVysledkyZoznam.VysledkyCasPredchadzajucehoKola(id, kolo);
+
+                                //ak je toto prvé kolo, dopln čas začiatku závodu
+                                if (predchadzajuceKolo == new DateTime())  //ak je prazdne
+                                {
+                                    dlzka = teraz - DateTime.Parse(lblZaciatokZavodu.Text.ToString());
+                                }
+                                else
+                                {
+                                    dlzka = teraz - predchadzajuceKolo;
+                                }
+
+                                //pridám mu kolo
+                                kolo++;
+
+                                //pridám mu 1 kolo a zapíšem výsledky
+                                BezecVysledky bezec1 = new BezecVysledky(id, meno, teraz, dlzka, kolo);
+
+                                //pridam bežca do výsledkov vlavo
+                                BezecVysledkyZoznam.VysledkyPridaj(bezec1);
+
+                                //priradím bežca do výsledkovej tabule (ak vyhovuje počtu kôl a je ešte volné poradie)
+                                BezecVysledkyZoznam.PoradiePridaj(bezec1, FileTxt.NacitajPocetKol(), FileTxt.NacitajPocetPoradi());
+
+                                //zobraz v outpute vysledky
+                                BezecVysledkyZoznam.VysledkyZobraz();
+
+                                //vypisovanie Priebežných výsledkov v datagride
+                                dataGridView1.DataSource = BezecVysledkyZoznam.vysledky;
+                                dataGridView1.Columns[2].DefaultCellStyle.Format = "HH:mm:ss:ff";
+                                dataGridView1.Columns[0].HeaderText = "Číslo bežca";
+                                dataGridView1.Columns[2].HeaderText = "Čas zápisu";
+                                dataGridView1.Columns[3].HeaderText = "Dĺžka kola";
+                                dataGridView1.Columns[4].HeaderText = "Číslo kola";
+                                dataGridView1.Columns[5].Visible = false;
+
+                                //nastavím grupovanie podľa počtu odbehnutých kôl
+                                dataGridViewGrouper1.SetGroupOn(this.dataGridView1.Columns["Kolo"]);
+
+                                //vypisovanie Poradia víťazov v datagride
+                                dataGridView3.DataSource = BezecVysledkyZoznam.poradie.ToList<BezecVysledky>();
+                                dataGridView3.Columns[3].Visible = false;
+                                dataGridView3.Columns[2].Visible = false;
+                            }
+                        }
+                        else
+                        {
+                            lblTextCiExistujeZadaneID.Visible = true;
+                            lblTextCiExistujeZadaneID.Text = ($"ID s číslom {(int)numCisloBezca.Value} neexistuje");
+                        }
                     }
-
                 }
-                //vymažem znaky v numUpDown
-                numCisloBezca.Text = "";
             }
+            else  //tu kontrolujem či už su všetci víťazi vyčerpaní - ak ano tak vypisujem nižšie
+            {
+                lblTextCiExistujeZadaneID.Text = "Všetky pozície sú už obsadené";
+                lblTextCiExistujeZadaneID.Visible = true;
+                numCisloBezca.Enabled = false;
+                MessageBox.Show("Bežecké preteky už poznajú všetkých víťazov - večná im sláva");
+            }
+            //vymažem znaky v numUpDown
+            numCisloBezca.Text = "";
         }
 
         private void numCisloBezca_Validating(object sender, CancelEventArgs e)
