@@ -73,10 +73,9 @@
             this.dgwCiselnikBezcov.DataSource = this.bezecZoznamBindingSource1;
             this.dgwCiselnikBezcov.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgwCiselnikBezcov.Location = new System.Drawing.Point(0, 0);
-            this.dgwCiselnikBezcov.Margin = new System.Windows.Forms.Padding(4);
             this.dgwCiselnikBezcov.Name = "dgwCiselnikBezcov";
             this.dgwCiselnikBezcov.ReadOnly = true;
-            this.dgwCiselnikBezcov.Size = new System.Drawing.Size(744, 498);
+            this.dgwCiselnikBezcov.Size = new System.Drawing.Size(558, 405);
             this.dgwCiselnikBezcov.TabIndex = 0;
             this.dgwCiselnikBezcov.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwCiselnikBezcov_CellContentClick);
             this.dgwCiselnikBezcov.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgwCiselnikBezcov_CellFormatting);
@@ -88,10 +87,9 @@
             // btnPridajBezca
             // 
             this.btnPridajBezca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnPridajBezca.Location = new System.Drawing.Point(16, 506);
-            this.btnPridajBezca.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPridajBezca.Location = new System.Drawing.Point(12, 411);
             this.btnPridajBezca.Name = "btnPridajBezca";
-            this.btnPridajBezca.Size = new System.Drawing.Size(180, 94);
+            this.btnPridajBezca.Size = new System.Drawing.Size(135, 76);
             this.btnPridajBezca.TabIndex = 1;
             this.btnPridajBezca.Text = "Pridaj bežca";
             this.btnPridajBezca.UseVisualStyleBackColor = true;
@@ -100,10 +98,9 @@
             // btnUpravBezca
             // 
             this.btnUpravBezca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnUpravBezca.Location = new System.Drawing.Point(204, 506);
-            this.btnUpravBezca.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUpravBezca.Location = new System.Drawing.Point(153, 411);
             this.btnUpravBezca.Name = "btnUpravBezca";
-            this.btnUpravBezca.Size = new System.Drawing.Size(180, 94);
+            this.btnUpravBezca.Size = new System.Drawing.Size(135, 76);
             this.btnUpravBezca.TabIndex = 2;
             this.btnUpravBezca.Text = "Uprav bežca";
             this.btnUpravBezca.UseVisualStyleBackColor = true;
@@ -112,10 +109,9 @@
             // btnVymazBezca
             // 
             this.btnVymazBezca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnVymazBezca.Location = new System.Drawing.Point(392, 506);
-            this.btnVymazBezca.Margin = new System.Windows.Forms.Padding(4);
+            this.btnVymazBezca.Location = new System.Drawing.Point(294, 411);
             this.btnVymazBezca.Name = "btnVymazBezca";
-            this.btnVymazBezca.Size = new System.Drawing.Size(180, 94);
+            this.btnVymazBezca.Size = new System.Drawing.Size(135, 76);
             this.btnVymazBezca.TabIndex = 3;
             this.btnVymazBezca.Text = "Vymaž bežca";
             this.btnVymazBezca.UseVisualStyleBackColor = true;
@@ -152,10 +148,9 @@
             // btnRefresh
             // 
             this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnRefresh.Location = new System.Drawing.Point(580, 506);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRefresh.Location = new System.Drawing.Point(435, 411);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(164, 94);
+            this.btnRefresh.Size = new System.Drawing.Size(123, 76);
             this.btnRefresh.TabIndex = 4;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
@@ -167,7 +162,6 @@
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
-            this.ID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // MenoBezca
             // 
@@ -199,16 +193,15 @@
             // 
             // CiselnikBezcov
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(744, 609);
+            this.ClientSize = new System.Drawing.Size(558, 495);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnVymazBezca);
             this.Controls.Add(this.btnUpravBezca);
             this.Controls.Add(this.btnPridajBezca);
             this.Controls.Add(this.dgwCiselnikBezcov);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CiselnikBezcov";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Zoznam bežcov";

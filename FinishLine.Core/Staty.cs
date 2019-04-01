@@ -16,8 +16,6 @@ namespace FinishLine.Core
         public static List<Stat> krajiny = new List<Stat>();
         static string path = "countries.csv";
 
-        //static string path = @"C:\Users\Mirco\source\repos\IndividualneZadanie2\Data\countries.csv";
-
         public static void NacitajZoznamStatov()
         {
             using (var streamReader = new StreamReader(path))
@@ -35,9 +33,6 @@ namespace FinishLine.Core
                     //pridam do listu krajín krajinu z csv
                     Stat stat1 = new Stat(dataRecord[0], dataRecord[1]);
                     krajiny.Add(stat1);
-
-                    //vypísanie do outputu ako sa zapísali krajiny
-                    //Debug.WriteLine($"Kod krajiny {stat1.KrajinaKod}, názov krajiny {stat1.KrajinaNazov}");
                 }
             }
         }

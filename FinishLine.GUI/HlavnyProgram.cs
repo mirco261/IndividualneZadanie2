@@ -33,7 +33,7 @@ namespace FinishLine
 
         private void konfiguráciaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (FileTxt.ExistujePath() == true)
+            if (FileTxt.JeZadanaCestaUzivatelom() == true)
             {
                 CiselnikBezcov f = new CiselnikBezcov();
                 f.ShowDialog(this);
@@ -47,7 +47,7 @@ namespace FinishLine
 
         private void pretekáriToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (FileTxt.ExistujePath() == true)
+            if (FileTxt.JeZadanaCestaUzivatelom() == true)
             {
                 Nastavenia f = new Nastavenia(); f.ShowDialog(this);
             }
@@ -101,7 +101,7 @@ namespace FinishLine
                     lblTextCiExistujeZadaneID.Text = "Nastavte si nastavenia preteku";
                     lblTextCiExistujeZadaneID.Visible = true;
                 }
-                
+
             }
             else
             {
@@ -123,16 +123,17 @@ namespace FinishLine
         }
 
 
-        /// <summary>
-        /// Tlačidlo pridaj bežca do vyhodnotenia
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void button1_Click_1(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Tlačidlo pridaj bežca do vyhodnotenia
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void numCisloBezca_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
@@ -141,14 +142,13 @@ namespace FinishLine
                 {
                     lblTextCiExistujeZadaneID.Text = ("Zadajte ID bežca");
                     lblTextCiExistujeZadaneID.Visible = true;
-
                 }
                 else
                 {
                     //zisti, či dané ID existuje
                     if (BezecZoznam.ZistiCiIdExistuje((int)numCisloBezca.Value))
                     {
-                        //zisti, či už náhodu nie je bežec víťaz
+                        //zisti, či už náhodu už je bežec víťaz
                         if (BezecVysledkyZoznam.VysledkyJeUzVitaz((int)numCisloBezca.Value))
                         {
                             lblTextCiExistujeZadaneID.Visible = true;
@@ -156,62 +156,62 @@ namespace FinishLine
                         }
                         //inak ide dalej
                         else
-                        { 
-
-                        lblTextCiExistujeZadaneID.Visible = false;
-
-                        //vytiahnem si ID z numUpDown
-                        int id = (int)numCisloBezca.Value;
-                        string meno = BezecZoznam.BezecDajMeno(id);
-                        DateTime teraz = DateTime.Now;
-                        TimeSpan dlzka;
-
-                        //zistím si koľko kôl už má bežec odbehnuté
-                        int kolo = BezecVysledkyZoznam.VysledkyHladajKoloBezca(id);
-
-                        //zistím si posledný čas kola
-                        DateTime predchadzajuceKolo = BezecVysledkyZoznam.VysledkyCasPredchadzajucehoKola(id,kolo);
-
-                        //ak je toto prvé kolo, dopln čas začiatku závodu
-                        if (predchadzajuceKolo == new DateTime())
                         {
-                        dlzka = teraz - DateTime.Parse(lblZaciatokZavodu.Text.ToString());
+                            lblTextCiExistujeZadaneID.Visible = false;
 
-                        }
-                        else
-                        { 
-                        dlzka = teraz - predchadzajuceKolo;
-                        }
+                            //vytiahnem si ID z numUpDown
+                            int id = (int)numCisloBezca.Value;
+                            string meno = BezecZoznam.BezecDajMeno(id);
+                            DateTime teraz = DateTime.Now;
+                            TimeSpan dlzka;
 
-                        //pridám mu kolo
-                        kolo++;
+                            //zistím si koľko kôl už má bežec odbehnuté
+                            int kolo = BezecVysledkyZoznam.VysledkyHladajKoloBezca(id);
 
-                        //pridám mu 1 kolo a zapíšem výsledky
-                        BezecVysledky bezec1 = new BezecVysledky(id, meno, teraz, dlzka, kolo);
+                            //zistím si posledný čas kola
+                            DateTime predchadzajuceKolo = BezecVysledkyZoznam.VysledkyCasPredchadzajucehoKola(id, kolo);
 
-                        //pridam bežca do výsledkov vlavo
-                        BezecVysledkyZoznam.VysledkyPridaj(bezec1);
+                            //ak je toto prvé kolo, dopln čas začiatku závodu
+                            if (predchadzajuceKolo == new DateTime())  //ak je prazdne
+                            {
+                                dlzka = teraz - DateTime.Parse(lblZaciatokZavodu.Text.ToString());
+                            }
+                            else
+                            {
+                                dlzka = teraz - predchadzajuceKolo;
+                            }
 
-                        //priradím bežca do výsledkovej tabule (ak vyhovuje počtu kôl a je ešte volné poradie)
-                        BezecVysledkyZoznam.PoradiePridaj(bezec1, FileTxt.NacitajPocetKol(), FileTxt.NacitajPocetPoradi());
+                            //pridám mu kolo
+                            kolo++;
+
+                            //pridám mu 1 kolo a zapíšem výsledky
+                            BezecVysledky bezec1 = new BezecVysledky(id, meno, teraz, dlzka, kolo);
+
+                            //pridam bežca do výsledkov vlavo
+                            BezecVysledkyZoznam.VysledkyPridaj(bezec1);
+
+                            //priradím bežca do výsledkovej tabule (ak vyhovuje počtu kôl a je ešte volné poradie)
+                            BezecVysledkyZoznam.PoradiePridaj(bezec1, FileTxt.NacitajPocetKol(), FileTxt.NacitajPocetPoradi());
+                            
+                            //zobraz v outpute vysledky
+                            BezecVysledkyZoznam.VysledkyZobraz();
+
+                            //vypisovanie Priebežných výsledkov v datagride
+                            dataGridView1.DataSource = BezecVysledkyZoznam.vysledky;
+                            dataGridView1.Columns[2].DefaultCellStyle.Format = "HH:mm:ss:ff";
+                            dataGridView1.Columns[0].HeaderText = "Číslo bežca";
+                            dataGridView1.Columns[2].HeaderText = "Čas zápisu";
+                            dataGridView1.Columns[3].HeaderText = "Dĺžka kola";
+                            dataGridView1.Columns[4].HeaderText = "Číslo kola";
+
+                            dataGridViewGrouper1.SetGroupOn(this.dataGridView1.Columns["Kolo"]);
 
 
-                        //zobraz v outpute vysledky
-                        BezecVysledkyZoznam.VysledkyZobraz();
+                            //vypisovanie Poradia víťazov v datagride
 
-                        //vypisovanie Priebežných výsledkov v datagride
-                        dataGridView1.DataSource = BezecVysledkyZoznam.vysledky.ToList<BezecVysledky>();
-                        dataGridView1.Columns[2].DefaultCellStyle.Format = "HH:mm:ss:f";
-                        dataGridView1.Columns[0].HeaderText = "Číslo bežca";
-                        dataGridView1.Columns[2].HeaderText = "Čas zápisu";
-                        dataGridView1.Columns[3].HeaderText = "Dĺžka kola";
-                        dataGridView1.Columns[4].HeaderText = "Číslo kola";
+                            dataGridView3.DataSource = BezecVysledkyZoznam.poradie.ToList<BezecVysledky>();
+                            dataGridView3.Columns[2].HeaderText = "Čas zápisu";
 
-
-                        //vypisovanie Poradia víťazov v datagride
-
-                        dataGridView3.DataSource = BezecVysledkyZoznam.poradie.ToList<BezecVysledky>();
-                        dataGridView3.Columns[2].HeaderText = "Čas zápisu";
 
                         }
                     }
@@ -235,45 +235,25 @@ namespace FinishLine
 
         private void numCisloBezca_ValueChanged(object sender, EventArgs e)
         {
-            //zistím, či existuje ID v zozname bežcov
-            //if (BezecZoznam.ZistiCiIdExistuje((int)numCisloBezca.Value))
-            //{
-            //    //ak aj existuje, zistím, či už náhodou nie je víťaz
-            //    lblTextCiExistujeZadaneID.Visible = false;
-            //    if (BezecVysledkyZoznam.VysledkyJeUzVitaz((int)numCisloBezca.Value))
-            //    {
-            //        lblTextCiExistujeZadaneID.Visible = true;
-            //        lblTextCiExistujeZadaneID.Text = ($"Bežec s číslom {(int)numCisloBezca.Value} je už víťaz");
-            //    }
-
-            //}
-            //else
-            //{
-            //    lblTextCiExistujeZadaneID.Visible = true;
-            //    lblTextCiExistujeZadaneID.Text = ($"Bežec s číslom {(int)numCisloBezca.Value} neexistuje");
-            //}
-        }
-
-        private void uložToolStripMenuItem_Click(object sender, EventArgs e)
-        {
 
         }
 
-        private void načítajToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void vytvorNovúDbToolStripMenuItem_Click(object sender, EventArgs e)
+        /// <summary>
+        /// tlačidlo na vytvorenie novej zložky pre databazu - subory
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void vytvorNovuDbToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.RootFolder = Environment.SpecialFolder.Desktop;
             fbd.Description = "Nastavenia preteku a zoznam bežcov sa budú ukladať do vybranej zložky";
-            if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (fbd.ShowDialog() == DialogResult.OK)
             {
                 MessageBox.Show($"Nastavenia preteku a zoznam bežcov sa budú ukladať do zložky\n{fbd.SelectedPath}");
             }
             string path = fbd.SelectedPath;
-            FinishLine.Core.FileTxt.UlozCestu(path);
+            FileTxt.UlozCestu(path);
 
             //Načítaj zoznam bežcov z novej databazy
             if (FileTxt.SuborExistujeZoznamBezcov())
@@ -282,17 +262,17 @@ namespace FinishLine
             }
         }
 
-        private void načítajExistujúcuDbToolStripMenuItem_Click(object sender, EventArgs e)
+        private void nacitajExistujucuDbToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.RootFolder = Environment.SpecialFolder.Desktop;
             fbd.Description = "Nastavenia preteku a zoznam bežcov sa načítajú z vybranej zložky";
-            if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (fbd.ShowDialog() == DialogResult.OK)
             {
                 MessageBox.Show($"Nastavenia preteku a zoznam bežcov sa načítali zo zálohy\n{fbd.SelectedPath}");
             }
             string path = fbd.SelectedPath;
-            FinishLine.Core.FileTxt.UlozCestu(path);
+            FileTxt.UlozCestu(path);
 
             //Načítaj zoznam bežcov z novej databazy
             if (FileTxt.SuborExistujeZoznamBezcov())

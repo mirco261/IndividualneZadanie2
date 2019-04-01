@@ -13,12 +13,13 @@ namespace FinishLine.Core
 {
     public partial class BezecUprav : Form
     {
-        int formId;
+
+        private int _posledneId;
 
         public BezecUprav(int id)
         {
             InitializeComponent();
-            formId = id;
+            _posledneId = id;
             cmbKrajiny.DataSource = Staty.krajiny;
             cmbKrajiny.SelectedValue = BezecZoznam.zoznamBezcov[id].Krajina;
             cmbKrajiny.DisplayMember = "KrajinaNazov";
@@ -31,28 +32,12 @@ namespace FinishLine.Core
             txtMenoBezca.Text = BezecZoznam.zoznamBezcov[id].Meno.ToString();
             numVek.Value = BezecZoznam.zoznamBezcov[id].Vek;
             lblID.Text = $"Pôvodné ID {id}";
-
-
-            //zistujem a zabranujem užívatelovi aby zadal ID rovnaké aké už bolo
-            if (id == numID.Value)
-            {
-
-            }
-            else
-            {
-                if (BezecZoznam.ZistiCiIdExistuje(decimal.ToInt16(numID.Value)))
-                {
-                    int a = decimal.ToInt16(numID.Value);
-                    numID.Value++;
-                }
-            }
-
-            //vymažem pôvodné id bežca v dictionary
-            BezecZoznam.zoznamBezcovVymaz(id);
         }
 
         private void btnUlozAzatvor_Click(object sender, EventArgs e)
         {
+            //vymažem pôvodné id bežca v dictionary
+            BezecZoznam.zoznamBezcovVymaz(_posledneId);
 
             // načítaj z každého políčka do premenných hodnoty
             string meno = txtMenoBezca.Text.ToString();
@@ -87,11 +72,7 @@ namespace FinishLine.Core
         private void numID_ValueChanged(object sender, EventArgs e)
         {
             //zistujem a zabranujem užívatelovi aby zadal ID rovnaké aké už bolo
-            if (formId == numID.Value)
-            {
-
-            }
-            else
+            if (_posledneId != numID.Value)
             {
                 if (BezecZoznam.ZistiCiIdExistuje(decimal.ToInt16(numID.Value)))
                 {
@@ -99,8 +80,7 @@ namespace FinishLine.Core
                     numID.Value++;
                 }
             }
-
-        }
+         }
 
         private void cmbKrajiny_SelectedIndexChanged(object sender, EventArgs e)
         {

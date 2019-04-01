@@ -22,19 +22,17 @@ namespace FinishLine.Core
         {
             zoznamBezcov.Add(ID, bezec1);
         }
+
+
         /// <summary>
         /// editovanie údajov o bežcoch
         /// </summary>
         /// <param name="ID"></param>
-        /// <param name="bezec1"></param>
-        public static void zoznamBezcovEdituj(int ID, Bezec bezec1)
+        /// <param name="novyBezec"></param>
+        public static void zoznamBezcovEdituj(int ID, Bezec novyBezec)
         {
             //uložím ho s novými údajmi
-            zoznamBezcov[ID].ID = bezec1.ID;
-            zoznamBezcov[ID].Krajina = bezec1.Krajina;
-            zoznamBezcov[ID].Meno = bezec1.Meno;
-            zoznamBezcov[ID].Pohlavie = bezec1.Pohlavie;
-            zoznamBezcov[ID].Vek = bezec1.Vek;
+            zoznamBezcov[ID] = novyBezec;
         }
 
 
@@ -67,14 +65,10 @@ namespace FinishLine.Core
         /// <param name="id"></param>
         /// <returns></returns>
        public static bool ZistiCiIdExistuje (int id)
-        { 
-            foreach (int line in BezecZoznam.zoznamBezcov.Keys)
-            {
-                if (BezecZoznam.zoznamBezcov.ContainsKey(id))
-                {
-                    return true;
-                }
-                else return false;
+        {
+            if (BezecZoznam.zoznamBezcov.ContainsKey(id))
+            { 
+                return true;
             }
             return false;
         }
@@ -88,11 +82,9 @@ namespace FinishLine.Core
         /// <summary>
         /// Zmažem všetko čo je v dictionary aby som ho naplnil novými hodnotami
         /// </summary>
-        public static void ZmazVsetkoVdictionary()
+        public static void ZmazVsetkychBezcov()
         {
-
-                zoznamBezcov.Clear();
-
+            zoznamBezcov.Clear();
         }
     }
 }

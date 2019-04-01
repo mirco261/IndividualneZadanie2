@@ -29,7 +29,6 @@ namespace FinishLine
             if (BezecZoznam.ZistiCiIdExistuje(decimal.ToInt16(numID.Value)))
             {
                 int a = decimal.ToInt16(numID.Value);
-                //lblID.Text = $"ID{a} už existuje";
                 numID.Value++;
             }
         }
@@ -49,10 +48,10 @@ namespace FinishLine
             }
 
             //vytvor nový objekt bežec
-            Bezec bezec1 = new Bezec(id, meno, krajina, vek, pohlavie);
+            Bezec bezec = new Bezec(id, meno, krajina, vek, pohlavie);
 
             //Zapíš bežec do zoznamu
-            BezecZoznam.zoznamBezcovPridaj(id, bezec1);
+            BezecZoznam.zoznamBezcovPridaj(id, bezec);
 
             //vypíš bežca do konzoly aby si si bol istý že ho pridalo
             BezecZoznam.zoznamBezcovVypis();
@@ -65,8 +64,6 @@ namespace FinishLine
             cmbKrajiny.SelectedValue = "SK";
             rdbMuz.Checked = true;
 
-            
-            
         }
 
         private void rdbZena_CheckedChanged(object sender, EventArgs e)
@@ -118,7 +115,6 @@ namespace FinishLine
                 int a = decimal.ToInt16(numID.Value);
                 lblID.Text = $"ID{a} už existuje";
                 numID.Value++;
-
             }
         }
     }

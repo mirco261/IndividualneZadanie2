@@ -14,13 +14,17 @@ namespace FinishLine.Core
         //vytvorenie Listu, kde si ukladám výsledky bežca
         public static List<BezecVysledky> vysledky = new List<BezecVysledky>();
 
+        /// <summary>
+        /// Pridám vysledok do zoznamu
+        /// </summary>
+        /// <param name="zaznam"></param>
         public static void VysledkyPridaj(BezecVysledky zaznam)
         {
             vysledky.Add(zaznam);
         }
 
         /// <summary>
-        /// 
+        /// Vyhľadám si absolvované posledné kolo bežca
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -76,7 +80,7 @@ namespace FinishLine.Core
 
 
         /// <summary>
-        /// Pridám 
+        /// Pridám iba tích bežcov, čo majú poradie
         /// </summary>
         /// <param name="bezec1"></param>
         /// <param name="pocetKol"></param>
@@ -84,17 +88,13 @@ namespace FinishLine.Core
         /// <returns></returns>
         public static List<BezecVysledky> PoradiePridaj(BezecVysledky bezec1 ,int pocetKol, int pocetPoradi)
         {
-            //List<BezecVysledky> poradie = new List<BezecVysledky>();
-            //foreach (var item in vysledky)
-            //{
-                //udelím miesto tomu, kto sa mi bude zhodovať v IF
+            //udelím miesto tomu, kto sa mi bude zhodovať v IF
                 if (bezec1.Kolo == pocetKol && VitazMiesto <= pocetPoradi) 
                 {
                     bezec1.Poradie = VitazMiesto;
                     poradie.Add(bezec1);
                     VitazMiesto++;
                 }
-            //}
             return poradie;
         }
 
@@ -111,7 +111,6 @@ namespace FinishLine.Core
                 {
                     return true;
                 }
-               // return false;
             }
             return false;
         }

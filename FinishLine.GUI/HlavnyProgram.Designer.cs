@@ -36,18 +36,22 @@
             this.lblTextInfo = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.vytvorNovúDbToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.načítajExistujúcuDbToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.konfiguráciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pretekáriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.Poradie = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Meno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CisloBezca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PocetOdbehnutychKol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.numCisloBezca = new System.Windows.Forms.NumericUpDown();
             this.lblTextCiExistujeZadaneID = new System.Windows.Forms.Label();
             this.lblNavodNadpis = new System.Windows.Forms.Label();
             this.lblNavodText = new System.Windows.Forms.Label();
-            this.vytvorNovúDbToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.načítajExistujúcuDbToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewGrouper1 = new Subro.Controls.DataGridViewGrouper(this.components);
             this.groupingSource1 = new Subro.Controls.GroupingSource();
             this.dataGridViewGrouper2 = new Subro.Controls.DataGridViewGrouper(this.components);
@@ -107,7 +111,7 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 145);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -124,6 +128,20 @@
             this.toolStripMenuItem1.Size = new System.Drawing.Size(79, 20);
             this.toolStripMenuItem1.Text = "1. Databáza";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // vytvorNovúDbToolStripMenuItem
+            // 
+            this.vytvorNovúDbToolStripMenuItem.Name = "vytvorNovúDbToolStripMenuItem";
+            this.vytvorNovúDbToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.vytvorNovúDbToolStripMenuItem.Text = "Vytvor novú db";
+            this.vytvorNovúDbToolStripMenuItem.Click += new System.EventHandler(this.vytvorNovuDbToolStripMenuItem_Click);
+            // 
+            // načítajExistujúcuDbToolStripMenuItem
+            // 
+            this.načítajExistujúcuDbToolStripMenuItem.Name = "načítajExistujúcuDbToolStripMenuItem";
+            this.načítajExistujúcuDbToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.načítajExistujúcuDbToolStripMenuItem.Text = "Načítaj existujúcu db";
+            this.načítajExistujúcuDbToolStripMenuItem.Click += new System.EventHandler(this.nacitajExistujucuDbToolStripMenuItem_Click);
             // 
             // konfiguráciaToolStripMenuItem
             // 
@@ -155,14 +173,47 @@
             // dataGridView3
             // 
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Poradie,
+            this.Meno,
+            this.CisloBezca,
+            this.PocetOdbehnutychKol});
             this.dataGridView3.Location = new System.Drawing.Point(566, 145);
-            this.dataGridView3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView3.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
             this.dataGridView3.RowTemplate.Height = 24;
             this.dataGridView3.Size = new System.Drawing.Size(641, 427);
             this.dataGridView3.TabIndex = 4;
             this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
+            // 
+            // Poradie
+            // 
+            this.Poradie.DataPropertyName = "Poradie";
+            this.Poradie.HeaderText = "Poradie";
+            this.Poradie.Name = "Poradie";
+            this.Poradie.ReadOnly = true;
+            // 
+            // Meno
+            // 
+            this.Meno.DataPropertyName = "Meno";
+            this.Meno.HeaderText = "Meno";
+            this.Meno.Name = "Meno";
+            this.Meno.ReadOnly = true;
+            // 
+            // CisloBezca
+            // 
+            this.CisloBezca.DataPropertyName = "ID";
+            this.CisloBezca.HeaderText = "Číslo bežca";
+            this.CisloBezca.Name = "CisloBezca";
+            this.CisloBezca.ReadOnly = true;
+            // 
+            // PocetOdbehnutychKol
+            // 
+            this.PocetOdbehnutychKol.DataPropertyName = "Kolo";
+            this.PocetOdbehnutychKol.HeaderText = "Počet odbehnutých kôl";
+            this.PocetOdbehnutychKol.Name = "PocetOdbehnutychKol";
+            this.PocetOdbehnutychKol.ReadOnly = true;
             // 
             // label1
             // 
@@ -190,7 +241,7 @@
             // 
             this.numCisloBezca.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.numCisloBezca.Location = new System.Drawing.Point(352, 61);
-            this.numCisloBezca.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numCisloBezca.Margin = new System.Windows.Forms.Padding(2);
             this.numCisloBezca.Maximum = new decimal(new int[] {
             999,
             0,
@@ -249,22 +300,9 @@
             this.lblNavodText.TabIndex = 12;
             this.lblNavodText.Text = resources.GetString("lblNavodText.Text");
             // 
-            // vytvorNovúDbToolStripMenuItem
-            // 
-            this.vytvorNovúDbToolStripMenuItem.Name = "vytvorNovúDbToolStripMenuItem";
-            this.vytvorNovúDbToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.vytvorNovúDbToolStripMenuItem.Text = "Vytvor novú db";
-            this.vytvorNovúDbToolStripMenuItem.Click += new System.EventHandler(this.vytvorNovúDbToolStripMenuItem_Click);
-            // 
-            // načítajExistujúcuDbToolStripMenuItem
-            // 
-            this.načítajExistujúcuDbToolStripMenuItem.Name = "načítajExistujúcuDbToolStripMenuItem";
-            this.načítajExistujúcuDbToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.načítajExistujúcuDbToolStripMenuItem.Text = "Načítaj existujúcu db";
-            this.načítajExistujúcuDbToolStripMenuItem.Click += new System.EventHandler(this.načítajExistujúcuDbToolStripMenuItem_Click);
-            // 
             // dataGridViewGrouper1
             // 
+            this.dataGridViewGrouper1.DataGridView = this.dataGridView1;
             this.dataGridViewGrouper1.SortOrder = System.Windows.Forms.SortOrder.Descending;
             // 
             // dataGridViewGrouper2
@@ -327,6 +365,10 @@
         private System.Windows.Forms.Label lblNavodText;
         private System.Windows.Forms.ToolStripMenuItem vytvorNovúDbToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem načítajExistujúcuDbToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Poradie;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Meno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CisloBezca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PocetOdbehnutychKol;
     }
 }
 

@@ -22,15 +22,8 @@ namespace FinishLine
                 FileTxt.NacitajZoznamBezcov();
             }
             dgwCiselnikBezcov.DataSource = BezecZoznam.zoznamBezcov.Values.ToList<Bezec>();
-
-
-            //skúšal som zoradzovanie ale neuspešne
-            //dgwCiselnikBezcov.Sort(dgwCiselnikBezcov.Columns[0], System.ComponentModel.ListSortDirection.Ascending);
         }
 
-        /// <summary>
-        /// refreshne datagridview na formulari
-        /// </summary>
         public void refreshDataGridView()
         {
             
@@ -47,7 +40,7 @@ namespace FinishLine
         }
 
         /// <summary>
-        /// Povolanie frm na vytvorenie bežca, ktoréo potom pošlem do dictionary
+        /// Povolanie frm na vytvorenie bežca, ktorého potom pošlem do dictionary
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -69,7 +62,6 @@ namespace FinishLine
         public void CiselnikBezcov_Load(object sender, EventArgs e)
         {
 
-
         }
 
         private void CiselnikBezcov_Shown(object sender, EventArgs e)
@@ -88,15 +80,12 @@ namespace FinishLine
         /// <param name="e"></param>
         private void btnVymazBezca_Click(object sender, EventArgs e)
         {
-            int x = dgwCiselnikBezcov.CurrentCell.RowIndex;
-            int id = (int)(dgwCiselnikBezcov.Rows[x].Cells[0].Value);
+            int id = VratAktualneIdBezca();
             BezecZoznam.zoznamBezcovVymaz(id);
 
             //refreshnem zoznam bežcov
             dgwCiselnikBezcov.DataSource = "";
             dgwCiselnikBezcov.DataSource = BezecZoznam.zoznamBezcov.Values.ToList<Bezec>();
-
-
         }
 
         /// <summary>
@@ -106,14 +95,24 @@ namespace FinishLine
         /// <param name="e"></param>
         private void btnUpravBezca_Click(object sender, EventArgs e)
         {
-            int x = dgwCiselnikBezcov.CurrentCell.RowIndex;
-            int id = (int)(dgwCiselnikBezcov.Rows[x].Cells[0].Value);
+            int id = VratAktualneIdBezca();
             BezecUprav f = new BezecUprav(id);
             f.ShowDialog(this);
 
             //refreshnem zoznam bežcov
             dgwCiselnikBezcov.DataSource = "";
             dgwCiselnikBezcov.DataSource = BezecZoznam.zoznamBezcov.Values.ToList<Bezec>();
+        }
+
+        /// <summary>
+        /// Vráti mi id bežca - prvú bunku na riadku, kde sa nachádza ID bežca
+        /// </summary>
+        /// <returns></returns>
+        private int VratAktualneIdBezca()
+        {
+            int x = dgwCiselnikBezcov.CurrentCell.RowIndex;
+            int id = (int)(dgwCiselnikBezcov.Rows[x].Cells[0].Value);
+            return id;
         }
 
         private void CiselnikBezcov_FormClosing(object sender, FormClosingEventArgs e)

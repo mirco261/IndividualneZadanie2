@@ -11,16 +11,13 @@ namespace FinishLine.Core
 {
     public static class FileTxt
     {
-        //tu sa budu ukladať a načítavať nastavenia programu
-        //static string s;
-
-        //public static string pathBezciSettings { get; set; } = @"C:\Users\Public\Documents\BezciSettings.txt";
-        //public static string pathBezciZoznam { get; set; } = @"C:\Users\Public\Documents\BezciZoznam.txt";
-
-
         public static string pathBezciSettings { get; set; } 
         public static string pathBezciZoznam { get; set; } 
 
+        /// <summary>
+        /// Vráti mi zlúčenú zložku so súborom do jedného stringu
+        /// </summary>
+        /// <param name="path"></param>
         public static void UlozCestu(string path)
         {
             pathBezciSettings = Path.Combine(path, "BezciSettings.txt");
@@ -31,7 +28,7 @@ namespace FinishLine.Core
         /// pozrie sa, či je zadaná cesta k databáze, true == existuje
         /// </summary>
         /// <returns></returns>
-        public static bool ExistujePath()
+        public static bool JeZadanaCestaUzivatelom()
         {
             if (pathBezciSettings == null || pathBezciSettings == null)
             {
@@ -40,21 +37,7 @@ namespace FinishLine.Core
             return true;
         }
 
-        /// <summary>
-        /// Vráti true ak súbor existuje
-        /// </summary>
-        /// <returns></returns>
-        public static bool SuborExistujeNastavenia()
-        {
-            if (File.Exists(pathBezciSettings))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+
 
 
         /// <summary>
@@ -92,7 +75,6 @@ namespace FinishLine.Core
 
         #region Zapisovanie a načítanie nastavení programu
 
-
         /// <summary>
         /// ukladanie a načítanie natavení pretekov
         /// </summary>
@@ -116,7 +98,6 @@ namespace FinishLine.Core
             string[] import = System.IO.File.ReadAllLines(pathBezciSettings);
 
             //nastavím oddelovač
-
             string[] zaznam = import[0].Split('\t');
             int PocetKol = int.Parse(zaznam[1]);
             return PocetKol;
@@ -131,7 +112,6 @@ namespace FinishLine.Core
             string[] import = System.IO.File.ReadAllLines(pathBezciSettings);
 
             //nastavím oddelovač
-
             string[] zaznam = import[0].Split('\t');
             int PocetKol = int.Parse(zaznam[2]);
             return PocetKol;
@@ -170,24 +150,26 @@ namespace FinishLine.Core
         {
             using (StreamWriter file = new StreamWriter(pathBezciZoznam))
                 foreach (var zaznam in BezecZoznam.zoznamBezcov)
-                    file.WriteLine("{0}\t{1}\t{2}\t{3}\t{4}\t{5}", zaznam.Key, zaznam.Value.ID, zaznam.Value.Meno, zaznam.Value.Vek, zaznam.Value.Krajina, zaznam.Value.Pohlavie);
+                    file.WriteLine($"{zaznam.Key}\t{zaznam.Value.ID}\t{zaznam.Value.Meno}\t{zaznam.Value.Vek}\t{zaznam.Value.Krajina}\t{zaznam.Value.Pohlavie}");
         }
 
-
+        /// <summary>
+        /// Načítam z txt zoznam bežcov a vložím do listu
+        /// </summary>
         public static void NacitajZoznamBezcov()
         {
             string[] import = System.IO.File.ReadAllLines(pathBezciZoznam);
 
             //vymažem aktuálny dictionary
-            BezecZoznam.ZmazVsetkoVdictionary();
+            BezecZoznam.ZmazVsetkychBezcov();
 
-            foreach (var item in import)
+            foreach (var riadok in import)
             {
                 //nastavím oddelovač
-                string[] zaznamObezcovi = item.Split('\t');
+                string[] zaznamObezcovi = riadok.Split('\t');
 
                 //vyplním jednotlivé values pre objekt
-                int key = int.Parse(zaznamObezcovi[0]);
+                //int key = int.Parse(zaznamObezcovi[0]);
                 int id = int.Parse(zaznamObezcovi[1]);
                 string meno = zaznamObezcovi[2];
                 string krajina = zaznamObezcovi[4];
@@ -195,10 +177,10 @@ namespace FinishLine.Core
                 string pohlavie = zaznamObezcovi[5];
 
                 //vytvorím si objekt
-                Bezec bezec1 = new Bezec(id, meno, krajina, vek, pohlavie);
+                Bezec bezec = new Bezec(id, meno, krajina, vek, pohlavie);
 
                 //zapíšem objekt do dictionary
-                BezecZoznam.zoznamBezcovPridaj(id, bezec1);
+                BezecZoznam.zoznamBezcovPridaj(id, bezec);
 
                 //vypíšem si do konzoly
                 BezecZoznam.zoznamBezcovVypis();
