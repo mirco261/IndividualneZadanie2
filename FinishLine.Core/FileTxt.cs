@@ -12,7 +12,11 @@ namespace FinishLine.Core
     public static class FileTxt
     {
         public static string pathBezciSettings { get; set; } 
-        public static string pathBezciZoznam { get; set; } 
+        public static string pathBezciZoznam { get; set; }
+        public static string pathUmiestnenia { get; set; }
+        public static string pathPreteky { get; set; }
+
+
 
         /// <summary>
         /// Vráti mi zlúčenú zložku so súborom do jedného stringu
@@ -23,6 +27,7 @@ namespace FinishLine.Core
             pathBezciSettings = Path.Combine(path, "BezciSettings.txt");
             pathBezciZoznam = Path.Combine(path, "BezciZoznam.txt");
         }
+
 
         /// <summary>
         /// pozrie sa, či je zadaná cesta k databáze, true == existuje
@@ -37,9 +42,7 @@ namespace FinishLine.Core
             return true;
         }
 
-
-
-
+        
         /// <summary>
         /// Vráti true ak súbor existuje
         /// </summary>
@@ -55,6 +58,7 @@ namespace FinishLine.Core
                 return false;
             }
         }
+
 
         /// <summary>
         /// Vráti true ak súbor existuje
@@ -80,7 +84,7 @@ namespace FinishLine.Core
         /// </summary>
         public static string NacitajNastavenia()
         {
-            string[] import = System.IO.File.ReadAllLines(pathBezciSettings);
+            string[] import = File.ReadAllLines(pathBezciSettings);
 
             //vypíšem si do konzoly
             Debug.WriteLine($"Načítané: {import[0]}");
@@ -95,7 +99,7 @@ namespace FinishLine.Core
         /// <returns></returns>
         public static int NacitajPocetKol()
         {
-            string[] import = System.IO.File.ReadAllLines(pathBezciSettings);
+            string[] import = File.ReadAllLines(pathBezciSettings);
 
             //nastavím oddelovač
             string[] zaznam = import[0].Split('\t');
@@ -109,7 +113,7 @@ namespace FinishLine.Core
         /// <returns></returns>
         public static int NacitajPocetPoradi()
         {
-            string[] import = System.IO.File.ReadAllLines(pathBezciSettings);
+            string[] import = File.ReadAllLines(pathBezciSettings);
 
             //nastavím oddelovač
             string[] zaznam = import[0].Split('\t');
@@ -158,7 +162,7 @@ namespace FinishLine.Core
         /// </summary>
         public static void NacitajZoznamBezcov()
         {
-            string[] import = System.IO.File.ReadAllLines(pathBezciZoznam);
+            string[] import = File.ReadAllLines(pathBezciZoznam);
 
             //vymažem aktuálny dictionary
             BezecZoznam.ZmazVsetkychBezcov();
@@ -169,7 +173,6 @@ namespace FinishLine.Core
                 string[] zaznamObezcovi = riadok.Split('\t');
 
                 //vyplním jednotlivé values pre objekt
-                //int key = int.Parse(zaznamObezcovi[0]);
                 int id = int.Parse(zaznamObezcovi[1]);
                 string meno = zaznamObezcovi[2];
                 string krajina = zaznamObezcovi[4];
@@ -186,6 +189,118 @@ namespace FinishLine.Core
                 BezecZoznam.zoznamBezcovVypis();
             }
         }
+        #endregion
+
+        #region Ukladanie a načítanie štatistík o behu
+
+        /// <summary>
+        /// zapisujem každého bežca do súboru txt oddelené tabulatorom (key, ID, Meno, Vek, Krajina, Pohlavie)
+        /// </summary>
+        public static void ZapisStatistikyOpretekoch()
+        {
+            using (StreamWriter file = new StreamWriter(pathPreteky))
+                foreach (var zaznam in BezecVysledkyZoznam.vysledky)
+                    file.WriteLine($"{zaznam.ID}\t{zaznam.Meno}\t{zaznam.Poradie}\t{zaznam.Kolo}\t{zaznam.Teraz}\t{zaznam.DlzkaKola}");
+        }
+
+        /// <summary>
+        /// zapisujem každého bežca do súboru txt oddelené tabulatorom (key, ID, Meno, Vek, Krajina, Pohlavie)
+        /// </summary>
+        public static void ZapisStatistikyOumiestneniach()
+        {
+            using (StreamWriter file = new StreamWriter(pathUmiestnenia))
+                foreach (var zaznam in BezecVysledkyZoznam.poradie)
+                    file.WriteLine($"{zaznam.ID}\t{zaznam.Meno}\t{zaznam.Poradie}\t{zaznam.Kolo}\t{zaznam.Teraz}\t{zaznam.DlzkaKola}");
+        }
+
+        /// <summary>
+        /// Vráti mi zlúčenú zložku so súborom do jedného stringu
+        /// </summary>
+        /// <param name="path"></param>
+        public static void UlozCestuStatistik(string path)
+        {
+            pathUmiestnenia = Path.Combine(path, "Umiestnenia.txt");
+            pathPreteky = Path.Combine(path, "Preteky.txt");
+        }
+
+        /// <summary>
+        /// Načítam z txt zoznam bežcov a vložím do listu
+        /// </summary>
+        public static void NacitajZoznamStatistik()
+        {
+            string[] import = File.ReadAllLines(pathPreteky);
+
+            //vymažem všetky záznamy v existujúcom liste
+            BezecVysledkyZoznam.vysledky = new List<BezecVysledky>();
+
+            foreach (var riadok in import)
+            {
+                //nastavím oddelovač
+                string[] statistikaPretekyRiadok = riadok.Split('\t');
+
+                //vyplním jednotlivé values pre objekt
+                int id = int.Parse(statistikaPretekyRiadok[0]);
+                string meno = statistikaPretekyRiadok[1];
+                int poradie = int.Parse(statistikaPretekyRiadok[2]);
+                int kolo = int.Parse(statistikaPretekyRiadok[3]);
+                DateTime teraz = DateTime.Parse(statistikaPretekyRiadok[4]);
+                TimeSpan dlzkaKola = TimeSpan.Parse(statistikaPretekyRiadok[5]);
+
+                //vytvorím si objekt
+                BezecVysledky bezec = new BezecVysledky(id,  meno,  teraz,  dlzkaKola,  kolo);
+
+                //zapíšem objekt do listu vysledkov
+                BezecVysledkyZoznam.VysledkyPridaj(bezec);
+            }
+        }
+
+        /// <summary>
+        /// Načítam z txt zoznam bežcov a vložím do listu
+        /// </summary>
+        public static void NacitajZoznamUmiestneni()
+        {
+            string[] import = File.ReadAllLines(pathUmiestnenia);
+
+            //vymažem všetky záznamy v existujúcom liste
+            BezecVysledkyZoznam.poradie = new List<BezecVysledky>();
+
+            foreach (var riadok in import)
+            {
+                //nastavím oddelovač
+                string[] statistikaPretekyRiadok = riadok.Split('\t');
+
+                //vyplním jednotlivé values pre objekt
+                int id = int.Parse(statistikaPretekyRiadok[0]);
+                string meno = statistikaPretekyRiadok[1];
+                int poradie = int.Parse(statistikaPretekyRiadok[2]);
+                int kolo = int.Parse(statistikaPretekyRiadok[3]);
+                DateTime teraz = DateTime.Parse(statistikaPretekyRiadok[4]);
+                TimeSpan dlzkaKola = TimeSpan.Parse(statistikaPretekyRiadok[5]);
+
+                //vytvorím si objekt
+                BezecVysledky bezec = new BezecVysledky(id, meno, teraz, dlzkaKola, kolo, poradie);
+
+                //zapíšem objekt do listu vysledkov
+                BezecVysledkyZoznam.PoradiePridaj(bezec);
+            }
+        }
+
+        /// <summary>
+        /// Vráti true ak súbor existuje
+        /// </summary>
+        /// <returns></returns>
+        public static bool SuborExistujeStatistikyAleboPoradie()
+        {
+            if (File.Exists(pathUmiestnenia) && File.Exists(pathPreteky))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         #endregion
     }
 }

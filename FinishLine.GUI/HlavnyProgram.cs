@@ -18,6 +18,7 @@ namespace FinishLine
         {
             InitializeComponent();
             Staty.NacitajZoznamStatov();
+            
 
         }
 
@@ -234,6 +235,8 @@ namespace FinishLine
                 lblTextCiExistujeZadaneID.Visible = true;
                 numCisloBezca.Enabled = false;
                 MessageBox.Show("Bežecké preteky už poznajú všetkých víťazov - večná im sláva");
+                btnUlozStatistiky.Visible = true;
+                btnZavodZahajit.Visible = false;
             }
             //vymažem znaky v numUpDown
             numCisloBezca.Text = "";
@@ -293,6 +296,77 @@ namespace FinishLine
         }
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnUlozStatistiky_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.RootFolder = Environment.SpecialFolder.Desktop;
+            fbd.Description = "Štatistiky preteku sa uložia do vybranej zložky";
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+                MessageBox.Show($"Štatistiky preteku sa uložili do\n{fbd.SelectedPath}");
+            }
+            string path = fbd.SelectedPath;
+            FileTxt.UlozCestuStatistik(path);
+
+            FileTxt.ZapisStatistikyOpretekoch();
+            FileTxt.ZapisStatistikyOumiestneniach();
+        }
+
+        private void načítajExistujúceŠtatistikyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.RootFolder = Environment.SpecialFolder.Desktop;
+            fbd.Description = "Načítajte si zložku, kde máte uložené štatistiky";
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+            }
+            string path = fbd.SelectedPath;
+            FileTxt.UlozCestuStatistik(path);
+
+            //zistim čí existujú súbory
+            if (FileTxt.SuborExistujeStatistikyAleboPoradie() == true)
+            {
+                MessageBox.Show($"Štatistiky sa načítali zo zložky\n{fbd.SelectedPath}");
+
+                FileTxt.NacitajZoznamStatistik();
+                FileTxt.NacitajZoznamUmiestneni();
+
+                //vymažem dáta v dgw
+                dataGridView1.DataSource = "";
+                dataGridView3.DataSource = "";
+
+                //napojím si nové dáta
+                dataGridView1.DataSource = BezecVysledkyZoznam.vysledky;
+                dataGridView3.DataSource = BezecVysledkyZoznam.poradie;
+
+                //nastavím grupovanie podľa počtu odbehnutých kôl
+                dataGridViewGrouper1.SetGroupOn(this.dataGridView1.Columns["Kolo"]);
+                dataGridView1.Columns[2].DefaultCellStyle.Format = "HH:mm:ss:ff";
+                dataGridView1.Columns[0].HeaderText = "Číslo bežca";
+                dataGridView1.Columns[2].HeaderText = "Čas zápisu";
+                dataGridView1.Columns[3].HeaderText = "Dĺžka kola";
+                dataGridView1.Columns[4].HeaderText = "Číslo kola";
+                dataGridView1.Columns[5].Visible = false;
+                dataGridView3.Columns[3].Visible = false;
+                dataGridView3.Columns[2].Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("V zadanej zložke sa nenachádzajú potrebné súbory pre zobrazenie štatistík.");
+            }
+
+            
+
+
+
+
+        }
+
+        private void lblNavodNadpis_Click(object sender, EventArgs e)
         {
 
         }

@@ -74,10 +74,18 @@ namespace FinishLine.Core
             }
         }
 
+
         ///List, kde si ukladám poradie a vyhodnotenie bežca
         public static List<BezecVysledky> poradie = new List<BezecVysledky>();
 
-
+        /// <summary>
+        /// Pridám bežcov s poradím z txt súboru
+        /// </summary>
+        /// <returns></returns>
+        public static void PoradiePridaj(BezecVysledky zaznam)
+        {
+            poradie.Add(zaznam);
+        }
 
         /// <summary>
         /// Pridám iba tích bežcov, čo majú poradie
@@ -131,7 +139,6 @@ namespace FinishLine.Core
         public static int VratPocetVitazov()
         {
             return poradie.Count();
-                        
         }
     }
 }

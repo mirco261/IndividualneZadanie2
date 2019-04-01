@@ -132,14 +132,26 @@
   <metadata name="PocetOdbehnutychKol.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="Poradie.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Meno.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="CisloBezca.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="PocetOdbehnutychKol.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="lblNavodText.Text" xml:space="preserve">
-    <value>1. Databáza - Zadajte úložisko pre nové preteky, alebo použite už vytovrenú databázu
+    <value>1. Databáza - Zadajte úložisko pre nové preteky, alebo použite už vytvorenú databázu
 2. Číselník bežcov - zadajte si zoznam bežcov preteku
 3. Nastavenia preteku - vyplňte potrebné údaje pre preteky
-4. Kliknutím na tlačidlo "Zahájiť pretek" sa Vám sprístupní zadávanie bežcov 
-    do tabuľky Priebežných výsledkov
-5. Do označeného políčka zapíšete Číslo bežca, ktorý práve prebehol cieľovou 
-     rovinkou a stlačíte tlačidlo ENTER</value>
+4. Kliknutím na tlačidlo "Zahájiť beh" sa Vám sprístupní zadávanie bežcov do tabuľky "Priebežné výsledky"
+5. Do označeného políčka zapíšete Číslo bežca, ktorý práve prebehol cieľovou rovinkou a stlačíte tlačidlo ENTER
+Program končí, keď sa obsadia všetky pozície víťazov behu. Následne si môžete túto štatistiku uložiť
+6. Môžete si načítať už dokončený beh</value>
   </data>
   <metadata name="dataGridViewGrouper1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>149, 24</value>

@@ -55,6 +55,8 @@
             this.dataGridViewGrouper1 = new Subro.Controls.DataGridViewGrouper(this.components);
             this.groupingSource1 = new Subro.Controls.GroupingSource();
             this.dataGridViewGrouper2 = new Subro.Controls.DataGridViewGrouper(this.components);
+            this.btnUlozStatistiky = new System.Windows.Forms.Button();
+            this.načítajExistujúceŠtatistikyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -65,7 +67,7 @@
             // btnZavodZahajit
             // 
             this.btnZavodZahajit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnZavodZahajit.Location = new System.Drawing.Point(12, 45);
+            this.btnZavodZahajit.Location = new System.Drawing.Point(12, 37);
             this.btnZavodZahajit.Name = "btnZavodZahajit";
             this.btnZavodZahajit.Size = new System.Drawing.Size(122, 32);
             this.btnZavodZahajit.TabIndex = 1;
@@ -99,7 +101,7 @@
             // 
             this.lblTextInfo.AutoSize = true;
             this.lblTextInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblTextInfo.Location = new System.Drawing.Point(351, 45);
+            this.lblTextInfo.Location = new System.Drawing.Point(327, 45);
             this.lblTextInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTextInfo.Name = "lblTextInfo";
             this.lblTextInfo.Size = new System.Drawing.Size(234, 13);
@@ -110,12 +112,12 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 145);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 164);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(549, 427);
+            this.dataGridView1.Size = new System.Drawing.Size(604, 408);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -132,15 +134,15 @@
             // vytvorNovúDbToolStripMenuItem
             // 
             this.vytvorNovúDbToolStripMenuItem.Name = "vytvorNovúDbToolStripMenuItem";
-            this.vytvorNovúDbToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.vytvorNovúDbToolStripMenuItem.Text = "Vytvor novú db";
+            this.vytvorNovúDbToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.vytvorNovúDbToolStripMenuItem.Text = "Vytvor novú databázu";
             this.vytvorNovúDbToolStripMenuItem.Click += new System.EventHandler(this.vytvorNovuDbToolStripMenuItem_Click);
             // 
             // načítajExistujúcuDbToolStripMenuItem
             // 
             this.načítajExistujúcuDbToolStripMenuItem.Name = "načítajExistujúcuDbToolStripMenuItem";
-            this.načítajExistujúcuDbToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.načítajExistujúcuDbToolStripMenuItem.Text = "Načítaj existujúcu db";
+            this.načítajExistujúcuDbToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.načítajExistujúcuDbToolStripMenuItem.Text = "Načítaj existujúcu databázu";
             this.načítajExistujúcuDbToolStripMenuItem.Click += new System.EventHandler(this.nacitajExistujucuDbToolStripMenuItem_Click);
             // 
             // konfiguráciaToolStripMenuItem
@@ -163,7 +165,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.konfiguráciaToolStripMenuItem,
-            this.pretekáriToolStripMenuItem});
+            this.pretekáriToolStripMenuItem,
+            this.načítajExistujúceŠtatistikyToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1218, 24);
@@ -178,12 +181,12 @@
             this.Meno,
             this.CisloBezca,
             this.PocetOdbehnutychKol});
-            this.dataGridView3.Location = new System.Drawing.Point(566, 145);
+            this.dataGridView3.Location = new System.Drawing.Point(620, 164);
             this.dataGridView3.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
             this.dataGridView3.RowTemplate.Height = 24;
-            this.dataGridView3.Size = new System.Drawing.Size(641, 427);
+            this.dataGridView3.Size = new System.Drawing.Size(562, 408);
             this.dataGridView3.TabIndex = 4;
             this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
             // 
@@ -219,7 +222,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(9, 126);
+            this.label1.Location = new System.Drawing.Point(11, 145);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(148, 17);
@@ -230,7 +233,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(562, 126);
+            this.label2.Location = new System.Drawing.Point(620, 145);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(121, 17);
@@ -240,7 +243,7 @@
             // numCisloBezca
             // 
             this.numCisloBezca.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numCisloBezca.Location = new System.Drawing.Point(352, 61);
+            this.numCisloBezca.Location = new System.Drawing.Point(328, 61);
             this.numCisloBezca.Margin = new System.Windows.Forms.Padding(2);
             this.numCisloBezca.Maximum = new decimal(new int[] {
             999,
@@ -283,20 +286,21 @@
             // 
             this.lblNavodNadpis.AutoSize = true;
             this.lblNavodNadpis.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblNavodNadpis.Location = new System.Drawing.Point(699, 28);
+            this.lblNavodNadpis.Location = new System.Drawing.Point(620, 30);
             this.lblNavodNadpis.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNavodNadpis.Name = "lblNavodNadpis";
             this.lblNavodNadpis.Size = new System.Drawing.Size(234, 17);
             this.lblNavodNadpis.TabIndex = 11;
             this.lblNavodNadpis.Text = "Návod na používanie programu";
+            this.lblNavodNadpis.Click += new System.EventHandler(this.lblNavodNadpis_Click);
             // 
             // lblNavodText
             // 
             this.lblNavodText.AutoSize = true;
-            this.lblNavodText.Location = new System.Drawing.Point(700, 45);
+            this.lblNavodText.Location = new System.Drawing.Point(620, 47);
             this.lblNavodText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNavodText.Name = "lblNavodText";
-            this.lblNavodText.Size = new System.Drawing.Size(414, 91);
+            this.lblNavodText.Size = new System.Drawing.Size(552, 91);
             this.lblNavodText.TabIndex = 12;
             this.lblNavodText.Text = resources.GetString("lblNavodText.Text");
             // 
@@ -310,11 +314,31 @@
             this.dataGridViewGrouper2.DataGridView = this.dataGridView1;
             this.dataGridViewGrouper2.SortOrder = System.Windows.Forms.SortOrder.Descending;
             // 
+            // btnUlozStatistiky
+            // 
+            this.btnUlozStatistiky.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnUlozStatistiky.Location = new System.Drawing.Point(12, 74);
+            this.btnUlozStatistiky.Name = "btnUlozStatistiky";
+            this.btnUlozStatistiky.Size = new System.Drawing.Size(122, 32);
+            this.btnUlozStatistiky.TabIndex = 13;
+            this.btnUlozStatistiky.Text = "Uložiť štatistiky";
+            this.btnUlozStatistiky.UseVisualStyleBackColor = true;
+            this.btnUlozStatistiky.Visible = false;
+            this.btnUlozStatistiky.Click += new System.EventHandler(this.btnUlozStatistiky_Click);
+            // 
+            // načítajExistujúceŠtatistikyToolStripMenuItem
+            // 
+            this.načítajExistujúceŠtatistikyToolStripMenuItem.Name = "načítajExistujúceŠtatistikyToolStripMenuItem";
+            this.načítajExistujúceŠtatistikyToolStripMenuItem.Size = new System.Drawing.Size(172, 20);
+            this.načítajExistujúceŠtatistikyToolStripMenuItem.Text = "6. Načítaj existujúce štatistiky";
+            this.načítajExistujúceŠtatistikyToolStripMenuItem.Click += new System.EventHandler(this.načítajExistujúceŠtatistikyToolStripMenuItem_Click);
+            // 
             // HlavnyProgram
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1218, 581);
+            this.Controls.Add(this.btnUlozStatistiky);
             this.Controls.Add(this.lblNavodText);
             this.Controls.Add(this.lblNavodNadpis);
             this.Controls.Add(this.lblTextCiExistujeZadaneID);
@@ -329,6 +353,8 @@
             this.Controls.Add(this.btnZavodZahajit);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximumSize = new System.Drawing.Size(1234, 620);
+            this.MinimumSize = new System.Drawing.Size(1234, 620);
             this.Name = "HlavnyProgram";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Evidencia bežeckých výkonov";
@@ -369,6 +395,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Meno;
         private System.Windows.Forms.DataGridViewTextBoxColumn CisloBezca;
         private System.Windows.Forms.DataGridViewTextBoxColumn PocetOdbehnutychKol;
+        private System.Windows.Forms.Button btnUlozStatistiky;
+        private System.Windows.Forms.ToolStripMenuItem načítajExistujúceŠtatistikyToolStripMenuItem;
     }
 }
 
